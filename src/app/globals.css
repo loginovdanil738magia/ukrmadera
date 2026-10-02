@@ -5626,7 +5626,7 @@ p.project-image-layer {
   position: absolute;
   inset: -2%;
   background:
-    url("/images/categories/materiales.jpg") center 46% / cover no-repeat;
+    url("/images/materials/materials-hero.webp") center 48% / cover no-repeat;
   transform: scale(1.035);
 }
 
@@ -6062,7 +6062,7 @@ p.project-image-layer {
 .home-materials-image {
   position: absolute;
   inset: -6%;
-  background: url("/images/categories/materiales.jpg") center 48% / cover no-repeat;
+  background: url("/images/materials/materials-hero.webp") center 48% / cover no-repeat;
   will-change: transform, clip-path;
 }
 
@@ -6321,4 +6321,113 @@ p.project-image-layer {
 .home-materials-title-editorial {
   line-height: 0.98;
   padding-bottom: 0.04em;
+}
+
+
+/* =========================================================
+   MATERIALS — PHOTOGRAPHIC DETAIL GALLERY
+   ========================================================= */
+.materials-detail-gallery {
+  padding: 0 0 clamp(115px, 11vw, 190px);
+  background: var(--ivory);
+}
+
+.materials-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 4vw, 68px);
+  align-items: end;
+}
+
+.materials-detail-card {
+  min-width: 0;
+}
+
+.materials-detail-card-tall {
+  max-width: 620px;
+}
+
+.materials-detail-media {
+  aspect-ratio: 4 / 5;
+}
+
+.materials-detail-media-wide {
+  aspect-ratio: 4 / 2.85;
+}
+
+.materials-detail-caption {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(23,25,22,.18);
+  margin-top: 18px;
+}
+
+.materials-detail-caption > span {
+  color: var(--oak);
+  font-family: var(--font-cormorant), serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.materials-detail-caption strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(20px, 1.7vw, 30px);
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+.materials-detail-caption p {
+  max-width: 520px;
+  margin: 0;
+  color: rgba(23,25,22,.68);
+  font-size: clamp(13px, .9vw, 16px);
+  line-height: 1.7;
+}
+
+.materials-detail-card .materials-media-image {
+  transition: transform 1s var(--ease-premium), filter 700ms ease;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .materials-detail-card:hover .materials-media-image {
+    transform: scale(1.025);
+  }
+}
+
+@media (max-width: 800px) {
+  .materials-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 68px;
+  }
+
+  .materials-detail-card-tall {
+    max-width: none;
+  }
+
+  .materials-detail-media,
+  .materials-detail-media-wide {
+    aspect-ratio: 4 / 3.5;
+  }
+}
+
+@media (max-width: 600px) {
+  .materials-detail-gallery {
+    padding-bottom: 100px;
+  }
+
+  .materials-detail-caption {
+    grid-template-columns: 34px 1fr;
+    gap: 14px;
+  }
+
+  .materials-detail-caption strong {
+    font-size: 23px;
+  }
+
+  .materials-detail-caption p {
+    font-size: 12px;
+  }
 }
