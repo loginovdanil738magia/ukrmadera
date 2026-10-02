@@ -4,8 +4,8 @@ import { useEffect } from "react";
 
 /**
  * Mientras se construyen las páginas interiores, solo permite navegar
- * al inicio (/) y a enlaces que pertenezcan al catálogo
- * (/catalogo y sus subrutas).
+ * al inicio (/), a Materiales (/materiales) y a enlaces que pertenezcan
+ * al catálogo (/catalogo y sus subrutas).
  *
  * El resto de enlaces conserva su diseño, hover y animaciones, pero
  * al pulsarlo no cambia de página.
@@ -30,6 +30,7 @@ export default function NavigationGuard() {
       const isAllowedLink =
         url.origin === window.location.origin &&
         (url.pathname === "/" ||
+          url.pathname === "/materiales" ||
           url.pathname === "/catalogo" ||
           url.pathname.startsWith("/catalogo/"));
 
