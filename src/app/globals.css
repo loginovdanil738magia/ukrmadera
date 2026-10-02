@@ -6504,3 +6504,42 @@ p.project-image-layer {
     letter-spacing: .11em;
   }
 }
+
+
+/* =========================================================
+   CATALOG HERO — IMAGE MOTION LAYER
+   Uses the same intro + autonomous breathing as Home.
+   ========================================================= */
+.catalog-hero {
+  background: #111611;
+}
+
+.catalog-hero-image {
+  position: absolute;
+  inset: -3%;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 14, 11, .91) 0%, rgba(8, 14, 11, .70) 38%, rgba(8, 12, 10, .35) 72%, rgba(8, 10, 8, .48) 100%),
+    linear-gradient(180deg, rgba(8, 12, 10, .30) 0%, rgba(8, 12, 10, .08) 46%, rgba(8, 12, 10, .62) 100%),
+    url("/images/catalog/catalog-hero.webp") center center / cover no-repeat;
+  will-change: transform, clip-path;
+}
+
+.catalog-hero::before,
+.catalog-hero::after,
+.catalog-hero-noise,
+.catalog-hero-inner {
+  z-index: 1;
+}
+
+.catalog-hero-inner {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-hero-image,
+  .materials-hero-image {
+    transform: scale(1.05);
+    clip-path: none;
+  }
+}
