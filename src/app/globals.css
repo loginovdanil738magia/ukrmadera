@@ -6431,3 +6431,39 @@ p.project-image-layer {
     font-size: 12px;
   }
 }
+
+
+/* =========================================================
+   HEADER — DESKTOP PROPORTIONS & ALIGNMENT
+   Keep the navigation visually balanced over full-screen heroes.
+   ========================================================= */
+@media (min-width: 1101px) {
+  .site-header {
+    height: 104px;
+  }
+
+  .header-container {
+    width: calc(100% - (var(--page-padding) * 2));
+    max-width: 1720px;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .brand-logo-image {
+    width: clamp(220px, 14vw, 258px);
+  }
+
+  .desktop-navigation {
+    gap: clamp(30px, 2.8vw, 50px);
+  }
+
+  .nav-link {
+    font-size: 12px;
+    letter-spacing: .11em;
+  }
+
+  .contact-link {
+    font-size: 11px;
+    letter-spacing: .11em;
+  }
+}
