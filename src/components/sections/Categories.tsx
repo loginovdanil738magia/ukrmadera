@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -258,7 +259,7 @@ export default function Categories() {
                             className="categories-view-all"
                         >
                             <span>Ver catálogo completo</span>
-                            <span aria-hidden="true">↗</span>
+                            <ArrowUpRight className="ui-arrow-up-right" />
                         </Link>
                     </div>
                 </div>
@@ -286,9 +287,7 @@ export default function Categories() {
                                     {category.number}
                                 </div>
 
-                                <div className="category-card-arrow">
-                                    <span>↗</span>
-                                </div>
+                                <ArrowUpRight className="ui-arrow-up-right" />
                             </div>
 
                             <div className="category-card-content">

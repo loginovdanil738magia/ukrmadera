@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 export default function ProjectCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -92,9 +93,7 @@ export default function ProjectCursor() {
     >
       <span>Ver</span>
 
-      <span className="project-cursor-arrow">
-        ↗
-      </span>
+      <ArrowUpRight className="ui-arrow-up-right" />
     </div>
   );
 }

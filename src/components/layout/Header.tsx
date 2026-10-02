@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 import Logo from "@/components/ui/Logo";
 
@@ -201,9 +202,7 @@ export default function Header() {
                         >
                             Contacto
 
-                            <span aria-hidden="true">
-                                ↗
-                            </span>
+                            <ArrowUpRight className="ui-arrow-up-right" />
                         </Link>
 
                         <button
