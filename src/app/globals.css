@@ -5515,3 +5515,33 @@ p.project-image-layer {
     font-size: 9px;
   }
 }
+
+
+/* Catalog filter readability */
+.catalog-filter-heading {
+  font-size: 9px;
+}
+
+.catalog-filter-button {
+  font-size: 11px;
+}
+
+@media (min-width: 1440px) {
+  .catalog-filter-heading {
+    font-size: 10px;
+  }
+
+  .catalog-filter-button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-filter-heading {
+    font-size: 8px;
+  }
+
+  .catalog-filter-button {
+    font-size: 9px;
+  }
+}
