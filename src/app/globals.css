@@ -5561,3 +5561,16 @@ p.project-image-layer {
     padding-left: 1px;
   }
 }
+
+
+/* =========================================================
+   PROCESS — MOBILE TIMELINE POINT ALIGNMENT
+   Place each marker on the vertical timeline, not above the number.
+   ========================================================= */
+@media (max-width: 520px) {
+  .process-step-point {
+    top: 13px;
+    left: -40px;
+    transform: translate(-50%, 0);
+  }
+}
