@@ -5574,3 +5574,27 @@ p.project-image-layer {
     transform: translate(-50%, 0);
   }
 }
+
+
+/* =========================================================
+   GLOBAL READABILITY — SLIGHTLY DARKER SUPPORTING COPY
+   ========================================================= */
+.manifesto-copy,
+.featured-project-description,
+.why-intro-copy,
+.why-principle p,
+.process-intro-copy p,
+.process-step-text,
+.catalog-card-bottom p,
+.catalog-end p {
+  color: rgba(23, 25, 22, .68);
+}
+
+.catalog-card-meta,
+.catalog-filter-heading {
+  color: rgba(23, 25, 22, .52);
+}
+
+.catalog-card-meta span:last-child {
+  color: rgba(23, 25, 22, .72);
+}
