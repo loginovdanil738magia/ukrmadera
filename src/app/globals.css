@@ -6302,3 +6302,23 @@ p.project-image-layer {
     bottom: 8%;
   }
 }
+
+
+/* =========================================================
+   HOME MATERIALS — ITALIC DESCENDER FIX
+   Prevent Cormorant descenders (e.g. the "g" in "elige") from being clipped.
+   ========================================================= */
+.home-materials-title-mask {
+  padding-bottom: 0.22em;
+  margin-bottom: -0.12em;
+}
+
+.home-materials-title-mask:last-child {
+  padding-bottom: 0.28em;
+  margin-bottom: 0;
+}
+
+.home-materials-title-editorial {
+  line-height: 0.98;
+  padding-bottom: 0.04em;
+}
