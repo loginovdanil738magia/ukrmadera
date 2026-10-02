@@ -41,14 +41,16 @@ export default function Hero() {
             intro.fromTo(
                 background,
                 {
-                    scale: 1.09,
-                    opacity: 0,
+                    scale: 1.07,
+                    opacity: 1,
+                    clipPath: "inset(0% 0% 100% 0%)",
                 },
                 {
                     scale: 1.05,
                     opacity: 1,
-                    duration: 2.6,
-                    ease: "power3.out",
+                    clipPath: "inset(0% 0% 0% 0%)",
+                    duration: 1.8,
+                    ease: "power4.inOut",
                 },
                 0
             );
@@ -128,27 +130,52 @@ export default function Hero() {
                 1.25
             );
 
-            /* Proyecto destacado */
-
-            intro.from(
-                ".hero-project",
-                {
-                    x: 40,
-                    opacity: 0,
-                    duration: 1.3,
-                },
-                1.1
-            );
+            /* Mensaje de marca */
 
             intro.from(
                 ".hero-project-line",
                 {
                     scaleX: 0,
                     transformOrigin: "left center",
-                    duration: 1.3,
+                    duration: 1.15,
                     ease: "power3.inOut",
                 },
-                1.35
+                0.95
+            );
+
+            intro.from(
+                ".hero-project-label",
+                {
+                    y: 12,
+                    opacity: 0,
+                    duration: 0.75,
+                    ease: "power3.out",
+                },
+                1.12
+            );
+
+            intro.from(
+                ".hero-project-title-line",
+                {
+                    yPercent: 115,
+                    opacity: 0,
+                    duration: 1.05,
+                    stagger: 0.14,
+                    ease: "power4.out",
+                },
+                1.24
+            );
+
+            intro.from(
+                ".hero-project-meta span",
+                {
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.08,
+                    ease: "power3.out",
+                },
+                1.62
             );
 
             /* Parte inferior */
@@ -366,18 +393,26 @@ export default function Hero() {
                         <div className="hero-project-line" />
 
                         <span className="hero-project-label">
-                            Proyecto destacado
+                            Espacios en madera
                         </span>
 
                         <h2>
-                            Casa
-                            <br />
-                            UkrMadera
+                            <span className="hero-project-title-mask">
+                                <span className="hero-project-title-line">
+                                    Diseñados para
+                                </span>
+                            </span>
+                            <span className="hero-project-title-mask">
+                                <span className="hero-project-title-line">
+                                    ser vividos.
+                                </span>
+                            </span>
                         </h2>
 
                         <div className="hero-project-meta">
-                            <span>Arquitectura</span>
-                            <span>Madera</span>
+                            <span>Diseño</span>
+                            <span>Fabricación</span>
+                            <span>Montaje</span>
                         </div>
                     </div>
                 </div>

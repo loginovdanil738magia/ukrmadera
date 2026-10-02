@@ -4930,3 +4930,16 @@ p.project-image-layer {
   width: 1em;
   height: 1em;
 }
+
+/* HERO — mensaje editorial derecho */
+.hero-project-title-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.05em;
+}
+
+.hero-project-title-line {
+  display: block;
+  will-change: transform, opacity;
+}
