@@ -27,20 +27,21 @@ export type CatalogProduct = {
 
 export const products: CatalogProduct[] = [
   {
-    id: "ingrid",
-    slug: "ingrid",
-    name: "Ingrid",
+    id: "abrera",
+    slug: "abrera",
+    name: "ABRERA",
     category: "casas",
     categoryLabel: "Casa de madera",
     image: "/images/categories/casas.jpg",
     description:
-      "Una vivienda de madera concebida para combinar amplitud, calidez y una relación directa con el exterior.",
+      "Casa de madera ABRERA de cuatro dormitorios, según el catálogo original de UkrMadera.",
     variants: [
       {
         id: "principal",
-        label: "Ingrid",
-        dimensions: "Consultar configuración",
-        note: "Configuración y precio según proyecto",
+        label: "4 dormitorios",
+        dimensions: "4 dormitorios",
+        price: 43600,
+        note: "Precio publicado en UkrMadera",
       },
     ],
   },
