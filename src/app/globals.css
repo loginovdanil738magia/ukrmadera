@@ -6543,3 +6543,11 @@ p.project-image-layer {
     clip-path: none;
   }
 }
+
+
+/* HOME — slightly more top breathing room for the header */
+@media (min-width: 1101px) {
+  body:has(.hero) .header-container {
+    padding-top: 10px;
+  }
+}
