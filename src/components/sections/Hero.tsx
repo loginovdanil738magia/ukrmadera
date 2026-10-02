@@ -16,6 +16,7 @@ export default function Hero() {
     useEffect(() => {
         const hero = heroRef.current;
         const background = backgroundRef.current;
+        const header = document.querySelector<HTMLElement>(".site-header");
 
         if (!hero || !background) return;
 
@@ -57,15 +58,17 @@ export default function Hero() {
 
             /* Header */
 
-            intro.from(
-                ".site-header",
-                {
-                    y: -30,
-                    opacity: 0,
-                    duration: 1.2,
-                },
-                0.2
-            );
+            if (header) {
+                intro.from(
+                    header,
+                    {
+                        y: -30,
+                        opacity: 0,
+                        duration: 1.2,
+                    },
+                    0.2
+                );
+            }
 
             /* Texto superior */
 
