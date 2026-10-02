@@ -263,9 +263,61 @@ export default function MaterialsPage() {
             <div
               className="materials-media-image"
               style={{
-                backgroundImage: "url('/images/categories/materiales.jpg')",
+                backgroundImage: "url('/images/materials/materials-interior.webp')",
               }}
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="materials-detail-gallery">
+        <div className="materials-container">
+          <div className="materials-detail-grid">
+            <article className="materials-detail-card materials-detail-card-tall materials-reveal">
+              <div className="materials-media materials-detail-media">
+                <div
+                  className="materials-media-image"
+                  style={{
+                    backgroundImage:
+                      "url('/images/materials/materials-facade.webp')",
+                  }}
+                />
+              </div>
+
+              <div className="materials-detail-caption">
+                <span>01</span>
+                <div>
+                  <strong>Envolvente de madera</strong>
+                  <p>
+                    Textura, protección y una presencia natural que define la
+                    arquitectura desde el exterior.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article className="materials-detail-card materials-reveal">
+              <div className="materials-media materials-detail-media materials-detail-media-wide">
+                <div
+                  className="materials-media-image"
+                  style={{
+                    backgroundImage:
+                      "url('/images/materials/materials-craft.webp')",
+                  }}
+                />
+              </div>
+
+              <div className="materials-detail-caption">
+                <span>02</span>
+                <div>
+                  <strong>Acabado y cuidado</strong>
+                  <p>
+                    El resultado final depende también de los detalles, el
+                    tratamiento y la calidad del acabado.
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
