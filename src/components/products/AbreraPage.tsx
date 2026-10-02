@@ -42,9 +42,37 @@ function formatPrice(price: number) {
 export default function AbreraPage() {
   const pageRef = useRef<HTMLElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
+  const galleryImageRef = useRef<HTMLImageElement>(null);
   const [configuration, setConfiguration] = useState(configurations[0]);
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const selectImage = (index: number) => {
+    if (index === activeImage) return;
+    const target = galleryImageRef.current;
+    if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setActiveImage(index);
+      return;
+    }
+
+    gsap.to(target, {
+      opacity: 0,
+      scale: 1.025,
+      duration: 0.22,
+      ease: "power2.in",
+      onComplete: () => {
+        setActiveImage(index);
+        requestAnimationFrame(() => {
+          if (!galleryImageRef.current) return;
+          gsap.fromTo(
+            galleryImageRef.current,
+            { opacity: 0, scale: 1.035 },
+            { opacity: 1, scale: 1, duration: 0.72, ease: "power3.out" }
+          );
+        });
+      },
+    });
+  };
 
   useEffect(() => {
     const page = pageRef.current;
@@ -130,7 +158,7 @@ export default function AbreraPage() {
                 key={image.src}
                 type="button"
                 className={`abrera-gallery-thumb ${activeImage === index ? "is-active" : ""}`}
-                onClick={() => setActiveImage(index)}
+                onClick={() => selectImage(index)}
                 aria-label={`Ver imagen ${index + 1}`}
                 aria-pressed={activeImage === index}
               >
