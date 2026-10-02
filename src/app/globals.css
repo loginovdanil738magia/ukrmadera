@@ -5045,3 +5045,28 @@ p.project-image-layer {
 @media (prefers-reduced-motion: reduce) {
   .catalog-card-media img, .catalog-card-hover, .catalog-card-arrow, .catalog-filter-button { transition: none !important; }
 }
+
+
+/* =========================================================
+   MANIFESTO — MOBILE TYPOGRAPHY FIX
+   Keep Cormorant italic descenders and the final line visible.
+   ========================================================= */
+@media (max-width: 600px) {
+  .manifesto-title {
+    line-height: 0.94;
+  }
+
+  .manifesto-line {
+    padding-bottom: 0.26em;
+    margin-bottom: -0.05em;
+  }
+
+  .manifesto-line:last-child {
+    padding-bottom: 0.34em;
+    margin-bottom: 0;
+  }
+
+  .manifesto-word-nature {
+    padding-right: 0.04em;
+  }
+}
