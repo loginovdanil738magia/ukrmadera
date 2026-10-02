@@ -36,13 +36,10 @@ export const products: CatalogProduct[] = [
     description:
       "Casa de madera ABRERA de cuatro dormitorios, según el catálogo original de UkrMadera.",
     variants: [
-      {
-        id: "principal",
-        label: "4 dormitorios",
-        dimensions: "4 dormitorios",
-        price: 43600,
-        note: "Precio publicado en UkrMadera",
-      },
+      { id: "sin-montaje", label: "44mm + revestimiento sin montaje", dimensions: "170 m²", area: 170, price: 43600 },
+      { id: "con-montaje", label: "44mm + revestimiento con montaje", dimensions: "170 m²", area: 170, price: 63600 },
+      { id: "aislada-sin-montaje", label: "44mm aislada + revestimiento sin montaje", dimensions: "170 m²", area: 170, price: 65200 },
+      { id: "aislada-con-montaje", label: "44mm aislada + revestimiento con montaje", dimensions: "170 m²", area: 170, price: 88000 },
     ],
   },
   {
