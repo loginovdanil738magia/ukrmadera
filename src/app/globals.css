@@ -6559,7 +6559,7 @@ p.project-image-layer {
 .ingrid-page { background:var(--ivory); color:var(--charcoal); }
 .ingrid-container { width:calc(100% - (var(--page-padding) * 2)); max-width:1540px; margin:0 auto; }
 .ingrid-hero { position:relative; min-height:100svh; overflow:hidden; background:#111611; color:var(--white); }
-.ingrid-hero-image { position:absolute; inset:-3%; background:url("/images/categories/casas.jpg") center 52% / cover no-repeat; will-change:transform,clip-path; }
+.ingrid-hero-image { position:absolute; inset:-3%; background:url("/images/products/abrera/abrera-01.webp") center 52% / cover no-repeat; will-change:transform,clip-path; }
 .ingrid-hero-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,11,8,.84),rgba(7,11,8,.4) 58%,rgba(7,11,8,.18)),linear-gradient(180deg,rgba(7,11,8,.24),rgba(7,11,8,.04) 48%,rgba(7,11,8,.7)); }
 .ingrid-hero-inner { position:relative; z-index:2; min-height:100svh; padding:calc(var(--header-height) + 70px) 0 56px; display:flex; flex-direction:column; justify-content:space-between; }
 .ingrid-breadcrumb { display:flex; gap:10px; color:rgba(255,255,255,.52); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
