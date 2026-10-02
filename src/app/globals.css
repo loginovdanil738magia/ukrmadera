@@ -5485,3 +5485,33 @@ p.project-image-layer {
     letter-spacing: 0.06em;
   }
 }
+
+
+/* Catalog meta fine tuning: 1px smaller */
+.catalog-card-meta {
+  font-size: clamp(8px, 0.7vw, 10px);
+}
+
+.catalog-card-meta span:last-child {
+  font-size: clamp(9px, 0.75vw, 11px);
+}
+
+@media (min-width: 1440px) {
+  .catalog-card-meta {
+    font-size: 10px;
+  }
+
+  .catalog-card-meta span:last-child {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-card-meta {
+    font-size: 8px;
+  }
+
+  .catalog-card-meta span:last-child {
+    font-size: 9px;
+  }
+}
