@@ -49,14 +49,6 @@ const categories = [
         href: "/catalogo/pergolas",
         className: "category-card-large",
     },
-    {
-        number: "06",
-        title: "Materiales",
-        subtitle: "La materia del proyecto",
-        image: "/images/categories/materiales.jpg",
-        href: "/materiales",
-        className: "category-card-small",
-    },
 ];
 
 export default function Categories() {
@@ -245,7 +237,7 @@ export default function Categories() {
 
                     <div className="categories-intro">
                         <span className="categories-intro-number">
-                            06 colecciones
+                            05 colecciones
                         </span>
 
                         <p>
