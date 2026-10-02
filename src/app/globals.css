@@ -4903,3 +4903,30 @@ p.project-image-layer {
     transform: none !important;
   }
 }
+/* =========================================================
+   SVG UI ARROWS
+   Prevent iOS/Safari from rendering interface arrows as emoji.
+   ========================================================= */
+.ui-arrow-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.project-gallery-button .ui-arrow-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.why-principle-arrow .ui-arrow-icon,
+.home-closing-button-arrow .ui-arrow-icon,
+.button-arrow .ui-arrow-icon,
+.hero-scroll-arrow .ui-arrow-icon,
+.project-discover-arrow .ui-arrow-icon,
+.mobile-project-link .ui-arrow-icon,
+.projects-all-link .ui-arrow-icon {
+  width: 1em;
+  height: 1em;
+}

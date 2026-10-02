@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ArrowIcon from "@/components/ui/ArrowIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -353,11 +354,8 @@ export default function WhyUkrMadera() {
                                     {principle.text}
                                 </p>
 
-                                <span
-                                    className="why-principle-arrow"
-                                    aria-hidden="true"
-                                >
-                                    ↘
+                                <span className="why-principle-arrow" aria-hidden="true">
+                                    <ArrowIcon direction="down-right" />
                                 </span>
 
                             </div>

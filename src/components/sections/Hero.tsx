@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Magnetic from "@/components/animations/Magnetic";
+import ArrowIcon from "@/components/ui/ArrowIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -336,11 +337,8 @@ export default function Hero() {
                                 >
                                     <span>Explorar proyectos</span>
 
-                                    <span
-                                        className="button-arrow"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
+                                    <span className="button-arrow" aria-hidden="true">
+                                        <ArrowIcon direction="up-right" />
                                     </span>
                                 </Link>
                             </Magnetic>
@@ -352,11 +350,8 @@ export default function Hero() {
                                 >
                                     <span>Ver catálogo</span>
 
-                                    <span
-                                        className="button-arrow"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
+                                    <span className="button-arrow" aria-hidden="true">
+                                        <ArrowIcon direction="up-right" />
                                     </span>
                                 </Link>
                             </Magnetic>
@@ -409,11 +404,8 @@ export default function Hero() {
                     {/* SCROLL INDICATOR */}
 
                     <div className="hero-scroll">
-                        <span
-                            className="hero-scroll-arrow"
-                            aria-hidden="true"
-                        >
-                            ↓
+                        <span className="hero-scroll-arrow" aria-hidden="true">
+                            <ArrowIcon direction="down" />
                         </span>
 
                         <span>Descubrir</span>

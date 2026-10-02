@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ArrowIcon from "@/components/ui/ArrowIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -176,7 +177,7 @@ export default function FeaturedProjects() {
                 <div className="project-visual-top"><span>UkrMadera</span><span>{String(activeProject + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span></div>
                 <div className="project-gallery-controls">
                   <div className="project-gallery-counter"><span>{String(activeImage + 1).padStart(2, "0")}</span><span className="project-gallery-separator" /><span>{String(currentProject.images.length).padStart(2, "0")}</span></div>
-                  <div className="project-gallery-buttons"><button type="button" className="project-gallery-button" onClick={previousImage} aria-label="Imagen anterior">←</button><button type="button" className="project-gallery-button" onClick={nextImage} aria-label="Imagen siguiente">→</button></div>
+                  <div className="project-gallery-buttons"><button type="button" className="project-gallery-button" onClick={previousImage} aria-label="Imagen anterior"><ArrowIcon direction="left" /></button><button type="button" className="project-gallery-button" onClick={nextImage} aria-label="Imagen siguiente"><ArrowIcon direction="right" /></button></div>
                 </div>
               </div>
             </div>
@@ -188,7 +189,7 @@ export default function FeaturedProjects() {
                   <div className="project-scroll-main">
                     <h3>{project.title}</h3><span className="project-model">{project.model}</span><p className="project-description">{project.description}</p>
                     <div className="project-details">{project.details.map((detail) => <div key={detail} className="project-detail"><span className="project-detail-dot" /><span>{detail}</span></div>)}</div>
-                    <Link href={project.href} className="project-discover"><span>Descubrir modelo</span><span className="project-discover-arrow" aria-hidden="true">↗</span></Link>
+                    <Link href={project.href} className="project-discover"><span>Descubrir modelo</span><span className="project-discover-arrow" aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link>
                   </div>
                 </article>
               ))}
@@ -209,12 +210,12 @@ export default function FeaturedProjects() {
               <span className="mobile-project-model">{project.model}</span>
               <p className="mobile-project-description">{project.description}</p>
               <div className="mobile-project-details">{project.details.map((detail) => <div key={detail} className="mobile-project-detail"><span /><strong>{detail}</strong></div>)}</div>
-              <Link href={project.href} className="mobile-project-link"><span>Descubrir modelo</span><span aria-hidden="true">↗</span></Link>
+              <Link href={project.href} className="mobile-project-link"><span>Descubrir modelo</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link>
             </article>
           ))}
         </div>
 
-        <footer className="projects-footer"><span>Diseño · Fabricación · Construcción</span><Link href="/proyectos" className="projects-all-link"><span>Ver todos los proyectos</span><span aria-hidden="true">↗</span></Link></footer>
+        <footer className="projects-footer"><span>Diseño · Fabricación · Construcción</span><Link href="/proyectos" className="projects-all-link"><span>Ver todos los proyectos</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link></footer>
       </div>
     </section>
   );

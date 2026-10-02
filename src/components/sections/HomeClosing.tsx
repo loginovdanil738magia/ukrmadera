@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Magnetic from "@/components/animations/Magnetic";
 import Logo from "@/components/ui/Logo";
+import ArrowIcon from "@/components/ui/ArrowIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,11 +158,8 @@ export default function HomeClosing() {
                                 >
                                     <span>Explorar catálogo</span>
 
-                                    <span
-                                        className="home-closing-button-arrow"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
+                                    <span className="home-closing-button-arrow" aria-hidden="true">
+                                        <ArrowIcon direction="up-right" />
                                     </span>
                                 </Link>
                             </Magnetic>
