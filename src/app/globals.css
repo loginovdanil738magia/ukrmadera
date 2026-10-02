@@ -5379,3 +5379,70 @@ p.project-image-layer {
 .catalog-hero-noise {
   opacity: .08;
 }
+
+
+/* =========================================================
+   GLOBAL READABILITY — DESCRIPTIVE / SUPPORTING COPY
+   Larger, clearer body text for desktop and large displays.
+   ========================================================= */
+.hero-description,
+.manifesto-copy,
+.featured-project-description,
+.why-intro-copy,
+.why-principle p,
+.process-step-description,
+.home-closing-description,
+.catalog-hero-bottom p,
+.catalog-card-bottom p,
+.catalog-end p {
+  font-size: clamp(13px, 0.9vw, 16px);
+  line-height: 1.72;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1440px) {
+  .hero-description,
+  .manifesto-copy,
+  .featured-project-description,
+  .why-intro-copy,
+  .why-principle p,
+  .process-step-description,
+  .home-closing-description,
+  .catalog-hero-bottom p,
+  .catalog-card-bottom p,
+  .catalog-end p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}
+
+@media (min-width: 1900px) {
+  .hero-description,
+  .manifesto-copy,
+  .featured-project-description,
+  .why-intro-copy,
+  .why-principle p,
+  .process-step-description,
+  .home-closing-description,
+  .catalog-hero-bottom p,
+  .catalog-card-bottom p,
+  .catalog-end p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-description,
+  .manifesto-copy,
+  .featured-project-description,
+  .why-intro-copy,
+  .why-principle p,
+  .process-step-description,
+  .home-closing-description,
+  .catalog-hero-bottom p,
+  .catalog-card-bottom p,
+  .catalog-end p {
+    font-size: 12px;
+    line-height: 1.68;
+  }
+}
