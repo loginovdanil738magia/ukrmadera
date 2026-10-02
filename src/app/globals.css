@@ -6467,3 +6467,40 @@ p.project-image-layer {
     letter-spacing: .11em;
   }
 }
+
+
+/* =========================================================
+   HEADER — UNIFIED DESKTOP GEOMETRY
+   Same exact width, padding and proportions on every route.
+   ========================================================= */
+@media (min-width: 1101px) {
+  .site-header {
+    height: 104px;
+  }
+
+  .header-container {
+    width: calc(100% - 96px);
+    max-width: none;
+    margin-left: 48px;
+    margin-right: 48px;
+    padding: 0;
+  }
+
+  .brand-logo-image {
+    width: 230px;
+  }
+
+  .desktop-navigation {
+    gap: 44px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    letter-spacing: .11em;
+  }
+
+  .contact-link {
+    font-size: 11px;
+    letter-spacing: .11em;
+  }
+}
