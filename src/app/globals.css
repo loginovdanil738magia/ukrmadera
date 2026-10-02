@@ -6813,3 +6813,203 @@ p.project-image-layer {
     flex-basis: 82px;
   }
 }
+
+
+/* =========================================================
+   GLOBAL RESPONSIVE SAFETY PASS
+   Prevent editorial type and grids from escaping the viewport.
+   ========================================================= */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+main,
+section,
+article,
+header,
+footer,
+div {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --page-padding: clamp(20px, 5.5vw, 34px);
+  }
+
+  .hero-title,
+  .catalog-hero-title,
+  .materials-hero-title,
+  .ingrid-hero h1 {
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .ingrid-hero-content {
+    width: 100%;
+  }
+
+  .ingrid-hero h1 {
+    font-size: clamp(66px, 20vw, 126px);
+    line-height: .82;
+    letter-spacing: -.065em;
+  }
+
+  .ingrid-hero-summary,
+  .ingrid-copy,
+  .ingrid-specs-heading,
+  .abrera-config-grid > div,
+  .abrera-gallery-heading > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ingrid-hero-summary p,
+  .ingrid-copy p,
+  .abrera-config-grid > div:first-child > p,
+  .ingrid-specs-heading p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .header-container,
+  .materials-container,
+  .ingrid-container {
+    width: calc(100% - 40px);
+  }
+
+  .ingrid-hero {
+    min-height: 100svh;
+  }
+
+  .ingrid-hero-inner {
+    min-height: 100svh;
+    padding-top: calc(var(--header-height) + 34px);
+    padding-bottom: 34px;
+  }
+
+  .ingrid-breadcrumb {
+    gap: 7px;
+    font-size: 7px;
+    letter-spacing: .1em;
+    white-space: nowrap;
+  }
+
+  .ingrid-hero-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(30px, 7vh, 54px);
+  }
+
+  .ingrid-eyebrow {
+    margin-bottom: 16px;
+    font-size: 8px;
+    letter-spacing: .14em;
+  }
+
+  .ingrid-hero h1 {
+    width: 100%;
+    font-size: clamp(58px, 19.5vw, 92px);
+    line-height: .86;
+    letter-spacing: -.06em;
+  }
+
+  .ingrid-hero-summary {
+    padding-top: 20px;
+  }
+
+  .ingrid-hero-summary p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .ingrid-hero-facts {
+    gap: 8px 16px;
+    font-size: 7px;
+    letter-spacing: .1em;
+  }
+
+  .manifesto-title,
+  .home-materials-title,
+  .featured-project-title,
+  .why-title,
+  .process-title,
+  .home-closing-title,
+  .materials-intro h2,
+  .materials-detail h2,
+  .materials-qualities h2,
+  .materials-uses h2,
+  .materials-closing h2,
+  .ingrid-intro h2,
+  .ingrid-feature h2,
+  .ingrid-specs h2,
+  .ingrid-cta h2,
+  .abrera-config h2,
+  .abrera-gallery-heading h2 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .catalog-hero-title,
+  .materials-hero-title {
+    font-size: clamp(48px, 14.5vw, 72px);
+    line-height: .9;
+  }
+
+  .abrera-gallery-heading {
+    gap: 16px;
+  }
+
+  .abrera-gallery-count {
+    flex: 0 0 auto;
+  }
+
+  .abrera-config-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .abrera-config-panel select {
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  .header-container,
+  .materials-container,
+  .ingrid-container {
+    width: calc(100% - 36px);
+  }
+
+  .ingrid-hero h1 {
+    font-size: clamp(54px, 18.5vw, 72px);
+  }
+
+  .ingrid-breadcrumb {
+    font-size: 6.5px;
+  }
+
+  .catalog-hero-title,
+  .materials-hero-title {
+    font-size: clamp(44px, 13.5vw, 58px);
+  }
+}
