@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 /**
  * Mientras se construyen las páginas interiores, solo permite navegar
- * a enlaces que pertenezcan al catálogo (/catalogo y sus subrutas).
+ * al inicio (/) y a enlaces que pertenezcan al catálogo
+ * (/catalogo y sus subrutas).
  *
  * El resto de enlaces conserva su diseño, hover y animaciones, pero
  * al pulsarlo no cambia de página.
@@ -24,13 +25,15 @@ export default function NavigationGuard() {
         return;
       }
 
-      // Solo funcionan Catálogo y todas sus páginas/modelos interiores.
+      // Funcionan Inicio, Catálogo y todas sus páginas/modelos interiores.
       const url = new URL(href, window.location.origin);
-      const isCatalogLink =
+      const isAllowedLink =
         url.origin === window.location.origin &&
-        (url.pathname === "/catalogo" || url.pathname.startsWith("/catalogo/"));
+        (url.pathname === "/" ||
+          url.pathname === "/catalogo" ||
+          url.pathname.startsWith("/catalogo/"));
 
-      if (isCatalogLink) return;
+      if (isAllowedLink) return;
 
       event.preventDefault();
     };
