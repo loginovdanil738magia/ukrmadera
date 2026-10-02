@@ -6633,3 +6633,41 @@ p.project-image-layer {
 .abrera-config-panel .ingrid-button { width:100%; justify-content:space-between; }
 @media(max-width:900px){ .abrera-config-grid { grid-template-columns:1fr; gap:55px; } }
 @media(max-width:600px){ .abrera-config-panel { padding:24px 20px; } .abrera-config h2 { font-size:clamp(47px,14vw,65px); } .abrera-config-price { align-items:flex-start; flex-direction:column; gap:16px; } }
+
+
+/* ABRERA — premium image gallery */
+.abrera-gallery { padding:clamp(100px,10vw,165px) 0; background:#e9e6de; }
+.abrera-gallery-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:48px; }
+.abrera-gallery-heading h2 { margin:0; font-size:clamp(54px,5.8vw,96px); font-weight:400; line-height:.9; letter-spacing:-.06em; }
+.abrera-gallery-heading h2 em { display:block; font-family:var(--font-cormorant),serif; font-weight:400; font-style:italic; color:var(--oak); letter-spacing:-.03em; }
+.abrera-gallery-count { padding-bottom:8px; color:rgba(23,25,22,.48); font-size:10px; font-weight:700; letter-spacing:.15em; }
+.abrera-gallery-stage { position:relative; display:block; width:100%; aspect-ratio:16/9; padding:0; overflow:hidden; border:0; background:#171916; cursor:zoom-in; }
+.abrera-gallery-stage img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s var(--ease-premium); }
+.abrera-gallery-stage:hover img { transform:scale(1.018); }
+.abrera-gallery-expand { position:absolute; right:24px; bottom:22px; padding:11px 14px; background:rgba(20,22,19,.72); backdrop-filter:blur(12px); color:#fff; font-size:8px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.abrera-gallery-thumbs { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-top:12px; }
+.abrera-gallery-thumb { position:relative; aspect-ratio:16/9; padding:0; overflow:hidden; border:1px solid transparent; background:#d7d3c9; cursor:pointer; opacity:.62; transition:opacity .35s ease,border-color .35s ease,transform .45s var(--ease-premium); }
+.abrera-gallery-thumb:hover { opacity:1; transform:translateY(-2px); }
+.abrera-gallery-thumb.is-active { opacity:1; border-color:var(--charcoal); }
+.abrera-gallery-thumb img { width:100%; height:100%; object-fit:cover; }
+.abrera-gallery-thumb span { position:absolute; right:7px; bottom:5px; color:#fff; font-size:7px; font-weight:700; text-shadow:0 1px 8px rgba(0,0,0,.65); }
+.abrera-lightbox { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; padding:clamp(25px,5vw,80px); background:rgba(12,14,12,.96); backdrop-filter:blur(12px); }
+.abrera-lightbox>img { display:block; max-width:100%; max-height:82vh; object-fit:contain; }
+.abrera-lightbox-close { position:absolute; top:28px; right:34px; border:0; background:transparent; color:#fff; font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; cursor:pointer; }
+.abrera-lightbox-nav { position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border:1px solid rgba(255,255,255,.28); border-radius:50%; background:rgba(255,255,255,.04); color:#fff; font-size:20px; cursor:pointer; }
+.abrera-lightbox-prev { left:28px; }.abrera-lightbox-next { right:28px; }
+.abrera-lightbox-count { position:absolute; bottom:27px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.58); font-size:9px; font-weight:700; letter-spacing:.15em; }
+@media(max-width:900px){ .abrera-gallery-thumbs { grid-template-columns:repeat(4,1fr); } }
+@media(max-width:600px){
+ .abrera-gallery { padding:85px 0; }
+ .abrera-gallery-heading { align-items:flex-start; margin-bottom:32px; }
+ .abrera-gallery-heading h2 { font-size:clamp(47px,14vw,65px); }
+ .abrera-gallery-stage { aspect-ratio:4/3; }
+ .abrera-gallery-thumbs { display:flex; gap:8px; overflow-x:auto; padding-bottom:8px; scrollbar-width:none; }
+ .abrera-gallery-thumbs::-webkit-scrollbar { display:none; }
+ .abrera-gallery-thumb { flex:0 0 96px; }
+ .abrera-lightbox { padding:55px 14px; }
+ .abrera-lightbox-nav { top:auto; bottom:24px; width:42px; height:42px; }
+ .abrera-lightbox-prev { left:20px; }.abrera-lightbox-next { right:20px; }
+ .abrera-lightbox-count { bottom:38px; }
+}
