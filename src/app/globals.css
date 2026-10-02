@@ -5304,3 +5304,53 @@ p.project-image-layer {
     aspect-ratio: 4 / 3.1;
   }
 }
+
+
+/* =========================================================
+   CATALOG HERO — TRUE FULL VIEWPORT
+   ========================================================= */
+.catalog-hero {
+  min-height: 100svh;
+  height: 100svh;
+}
+
+.catalog-hero-inner {
+  min-height: calc(100svh - var(--header-height));
+  height: calc(100svh - var(--header-height));
+}
+
+@supports (height: 100dvh) {
+  .catalog-hero {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .catalog-hero-inner {
+    min-height: calc(100dvh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-hero {
+    min-height: 100svh;
+    height: 100svh;
+  }
+
+  .catalog-hero-inner {
+    min-height: calc(100svh - var(--header-height));
+    height: calc(100svh - var(--header-height));
+  }
+
+  @supports (height: 100dvh) {
+    .catalog-hero {
+      min-height: 100dvh;
+      height: 100dvh;
+    }
+
+    .catalog-hero-inner {
+      min-height: calc(100dvh - var(--header-height));
+      height: calc(100dvh - var(--header-height));
+    }
+  }
+}
