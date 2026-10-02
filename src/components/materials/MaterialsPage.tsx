@@ -51,6 +51,12 @@ export default function MaterialsPage() {
 
     if (reduceMotion) return;
 
+    const heroImage = section.querySelector<HTMLElement>(".materials-hero-image");
+    const heroKickerLine = section.querySelector<HTMLElement>(".materials-hero-kicker-line");
+    const qualities = section.querySelectorAll<HTMLElement>(".materials-quality");
+    const useRows = section.querySelectorAll<HTMLElement>(".materials-use-row");
+    const backgroundWord = section.querySelector<HTMLElement>(".materials-background-word");
+
     const ctx = gsap.context(() => {
       gsap.from(".materials-hero-line", {
         yPercent: 115,
@@ -68,6 +74,30 @@ export default function MaterialsPage() {
         delay: 0.3,
       });
 
+      if (heroKickerLine) {
+        gsap.from(heroKickerLine, {
+          scaleX: 0,
+          transformOrigin: "left center",
+          duration: 1.1,
+          ease: "power3.inOut",
+          delay: 0.45,
+        });
+      }
+
+      if (heroImage) {
+        gsap.to(heroImage, {
+          scale: 1.08,
+          yPercent: 5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".materials-hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        });
+      }
+
       const blocks = gsap.utils.toArray<HTMLElement>(".materials-reveal");
       blocks.forEach((block) => {
         gsap.from(block, {
@@ -82,6 +112,57 @@ export default function MaterialsPage() {
           },
         });
       });
+
+      qualities.forEach((card, index) => {
+        const line = card.querySelector<HTMLElement>(".materials-quality-line");
+
+        if (line) {
+          gsap.from(line, {
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 1,
+            delay: index * 0.06,
+            ease: "power3.inOut",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 84%",
+              once: true,
+            },
+          });
+        }
+      });
+
+      useRows.forEach((row, index) => {
+        gsap.from(row, {
+          x: 32,
+          opacity: 0,
+          duration: 0.75,
+          delay: index * 0.04,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: row,
+            start: "top 90%",
+            once: true,
+          },
+        });
+      });
+
+      if (backgroundWord) {
+        gsap.fromTo(
+          backgroundWord,
+          { xPercent: -8 },
+          {
+            xPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".materials-uses",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.6,
+            },
+          }
+        );
+      }
 
       const media = gsap.utils.toArray<HTMLElement>(".materials-media");
       media.forEach((item) => {
@@ -210,6 +291,9 @@ export default function MaterialsPage() {
       </section>
 
       <section className="materials-uses">
+        <span className="materials-background-word" aria-hidden="true">
+          MADERA
+        </span>
         <div className="materials-container materials-uses-grid">
           <div className="materials-uses-copy materials-reveal">
             <span className="materials-label">Versatilidad</span>
