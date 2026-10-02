@@ -7013,3 +7013,12 @@ div {
     font-size: clamp(44px, 13.5vw, 58px);
   }
 }
+
+
+/* CATALOG — keep the native pointer visible on product media.
+   Home category cards continue using the contextual custom cursor. */
+@media (hover: hover) and (pointer: fine) {
+  .catalog-page .catalog-card-media.category-card-media {
+    cursor: pointer;
+  }
+}
