@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,16 +8,36 @@ import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const configurations = [
+  { id: "sin-montaje", label: "44mm + revestimiento sin montaje", price: 43600 },
+  { id: "con-montaje", label: "44mm + revestimiento con montaje", price: 63600 },
+  { id: "aislada-sin-montaje", label: "44mm aislada + revestimiento sin montaje", price: 65200 },
+  { id: "aislada-con-montaje", label: "44mm aislada + revestimiento con montaje", price: 88000 },
+];
+
 const specs = [
   ["Modelo", "ABRERA"],
-  ["Categoría", "Casa de madera"],
-  ["Dormitorios", "4 dormitorios"],
-  ["Precio publicado", "43.600 €"],
+  ["Código de producto", "123"],
+  ["Superficie", "170 m²"],
+  ["Dormitorios", "4"],
+  ["Salón", "37 m²"],
+  ["Baños", "4"],
+  ["Precio desde", "43.600 €"],
 ];
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(price);
+}
 
 export default function AbreraPage() {
   const pageRef = useRef<HTMLElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
+  const [configuration, setConfiguration] = useState(configurations[0]);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -70,7 +90,7 @@ export default function AbreraPage() {
             <div className="ingrid-hero-summary ingrid-hero-reveal">
               <p>Casa de madera ABRERA, modelo de cuatro dormitorios del catálogo de UkrMadera.</p>
               <div className="ingrid-hero-facts">
-                <span>4 dormitorios</span><span>43.600 €</span>
+                <span>170 m²</span><span>4 dormitorios</span><span>Desde 43.600 €</span>
               </div>
             </div>
           </div>
@@ -85,13 +105,54 @@ export default function AbreraPage() {
           </div>
           <div className="ingrid-copy ingrid-reveal">
             <p>
-              ABRERA forma parte de la colección de casas de madera de UkrMadera y
-              aparece en el catálogo original dentro de la categoría de cuatro dormitorios.
+              ABRERA es una obra de arte donde la madera, esculpida por la innovación,
+              da vida a espacios únicos y exclusivos.
             </p>
             <p>
-              Su precio publicado en el catálogo original es de 43.600 €. Para cualquier
-              detalle adicional del proyecto, la configuración se consulta directamente con UkrMadera.
+              Sus 170 m² incluyen cuatro dormitorios, cuatro baños independientes y un
+              salón de 37 m² pensado para integrar una cocina amplia y un comedor. Numerosas
+              ventanas y puertas favorecen la entrada de luz natural, y existe la opción
+              de ampliar la vivienda con una terraza de madera.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="abrera-config">
+        <div className="ingrid-container abrera-config-grid">
+          <div className="ingrid-reveal">
+            <span className="ingrid-label">Configuraciones</span>
+            <h2>Elige cómo quieres<em> tu ABRERA.</em></h2>
+            <p>Selecciona una de las cuatro opciones publicadas para consultar su precio.</p>
+          </div>
+
+          <div className="abrera-config-panel ingrid-reveal">
+            <div className="abrera-config-price">
+              <span>Precio</span>
+              <strong>{formatPrice(configuration.price)}</strong>
+            </div>
+            <label htmlFor="abrera-configuration">Opción</label>
+            <select
+              id="abrera-configuration"
+              value={configuration.id}
+              onChange={(event) => {
+                const selected = configurations.find((item) => item.id === event.target.value);
+                if (selected) setConfiguration(selected);
+              }}
+            >
+              {configurations.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label} — {formatPrice(item.price)}
+                </option>
+              ))}
+            </select>
+            <div className="abrera-config-meta">
+              <span>170 m²</span><span>4 dormitorios</span><span>4 baños</span>
+            </div>
+            <Link href="/contacto" className="ingrid-button">
+              <span>Solicitar información</span>
+              <ArrowUpRight className="ui-arrow-icon" />
+            </Link>
           </div>
         </div>
       </section>
@@ -103,9 +164,9 @@ export default function AbreraPage() {
             <h2>Información<em> del catálogo original.</em></h2>
           </div>
           <div className="ingrid-feature-grid">
-            <article className="ingrid-reveal"><span>01</span><h3>4 dormitorios</h3><p>Clasificación publicada por UkrMadera para el modelo ABRERA.</p></article>
-            <article className="ingrid-reveal"><span>02</span><h3>43.600 €</h3><p>Precio mostrado actualmente para ABRERA en el catálogo original de UkrMadera.</p></article>
-            <article className="ingrid-reveal"><span>03</span><h3>Casa de madera</h3><p>ABRERA pertenece a la colección de casas de madera de UkrMadera.</p></article>
+            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p></article>
+            <article className="ingrid-reveal"><span>02</span><h3>Salón de 37 m²</h3><p>Un gran espacio previsto para instalar una cocina amplia y una zona de comedor.</p></article>
+            <article className="ingrid-reveal"><span>03</span><h3>4 baños</h3><p>Cuatro baños independientes y abundantes huecos para favorecer la entrada de luz natural.</p></article>
           </div>
         </div>
       </section>
