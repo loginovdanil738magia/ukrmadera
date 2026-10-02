@@ -20,6 +20,7 @@ type Filter = "todos" | ProductCategory;
 export default function CatalogGrid() {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const heroBackgroundRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<Filter>("todos");
 
   const visibleProducts = useMemo(
@@ -40,7 +41,53 @@ export default function CatalogGrid() {
 
     if (reduceMotion) return;
 
+    const heroBackground = heroBackgroundRef.current;
+
     const ctx = gsap.context(() => {
+      if (heroBackground) {
+        const intro = gsap.timeline();
+        intro.fromTo(
+          heroBackground,
+          {
+            scale: 1.07,
+            opacity: 1,
+            clipPath: "inset(0% 0% 100% 0%)",
+          },
+          {
+            scale: 1.05,
+            opacity: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.8,
+            ease: "power4.inOut",
+          },
+          0
+        );
+
+        gsap.timeline({
+          repeat: -1,
+          yoyo: true,
+          delay: 2.6,
+          defaults: { ease: "sine.inOut" },
+        })
+          .to(heroBackground, {
+            scale: 1.075,
+            xPercent: -0.25,
+            yPercent: -0.15,
+            duration: 10,
+          })
+          .to(heroBackground, {
+            scale: 1.055,
+            xPercent: 0.2,
+            yPercent: 0.15,
+            duration: 12,
+          })
+          .to(heroBackground, {
+            scale: 1.08,
+            xPercent: -0.15,
+            yPercent: 0.2,
+            duration: 11,
+          });
+      }
       gsap.from(".catalog-intro-reveal", {
         y: 42,
         opacity: 0,
@@ -98,6 +145,7 @@ export default function CatalogGrid() {
   return (
     <section ref={sectionRef} className="catalog-page">
       <div className="catalog-hero">
+        <div ref={heroBackgroundRef} className="catalog-hero-image" aria-hidden="true" />
         <div className="catalog-hero-noise" aria-hidden="true" />
         <div className="catalog-container catalog-hero-inner">
           <div className="catalog-kicker catalog-intro-reveal">
