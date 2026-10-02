@@ -8,6 +8,11 @@ import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const gallery = Array.from({ length: 14 }, (_, index) => ({
+  src: `/images/products/abrera/abrera-${String(index + 1).padStart(2, "0")}.webp`,
+  alt: `Casa de madera ABRERA · vista ${String(index + 1).padStart(2, "0")}`,
+}));
+
 const configurations = [
   { id: "sin-montaje", label: "44mm + revestimiento sin montaje", price: 43600 },
   { id: "con-montaje", label: "44mm + revestimiento con montaje", price: 63600 },
@@ -38,6 +43,8 @@ export default function AbreraPage() {
   const pageRef = useRef<HTMLElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
   const [configuration, setConfiguration] = useState(configurations[0]);
+  const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -95,6 +102,54 @@ export default function AbreraPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="abrera-gallery" aria-label="Galería de ABRERA">
+        <div className="ingrid-container">
+          <div className="abrera-gallery-heading ingrid-reveal">
+            <div>
+              <span className="ingrid-label">Galería · 14 imágenes</span>
+              <h2>Descubre ABRERA<em> desde cada ángulo.</em></h2>
+            </div>
+            <span className="abrera-gallery-count">{String(activeImage + 1).padStart(2, "0")} / 14</span>
+          </div>
+
+          <button
+            type="button"
+            className="abrera-gallery-stage ingrid-reveal"
+            onClick={() => setLightboxOpen(true)}
+            aria-label="Ampliar imagen"
+          >
+            <img src={gallery[activeImage].src} alt={gallery[activeImage].alt} />
+            <span className="abrera-gallery-expand">Ampliar</span>
+          </button>
+
+          <div className="abrera-gallery-thumbs" role="list" aria-label="Seleccionar imagen">
+            {gallery.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                className={`abrera-gallery-thumb ${activeImage === index ? "is-active" : ""}`}
+                onClick={() => setActiveImage(index)}
+                aria-label={`Ver imagen ${index + 1}`}
+                aria-pressed={activeImage === index}
+              >
+                <img src={image.src} alt="" loading={index < 4 ? "eager" : "lazy"} />
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {lightboxOpen && (
+          <div className="abrera-lightbox" role="dialog" aria-modal="true" aria-label="Galería ampliada">
+            <button type="button" className="abrera-lightbox-close" onClick={() => setLightboxOpen(false)} aria-label="Cerrar galería">Cerrar</button>
+            <button type="button" className="abrera-lightbox-nav abrera-lightbox-prev" onClick={() => setActiveImage((activeImage - 1 + gallery.length) % gallery.length)} aria-label="Imagen anterior">←</button>
+            <img src={gallery[activeImage].src} alt={gallery[activeImage].alt} />
+            <button type="button" className="abrera-lightbox-nav abrera-lightbox-next" onClick={() => setActiveImage((activeImage + 1) % gallery.length)} aria-label="Imagen siguiente">→</button>
+            <span className="abrera-lightbox-count">{String(activeImage + 1).padStart(2, "0")} / {gallery.length}</span>
+          </div>
+        )}
       </section>
 
       <section className="ingrid-intro">
