@@ -5545,3 +5545,19 @@ p.project-image-layer {
     font-size: 9px;
   }
 }
+
+
+/* =========================================================
+   PROCESS — MOBILE NUMBER GLYPH FIX
+   Cormorant italic renders 01/02 with colliding glyphs at small sizes.
+   Keep the editorial serif, but use upright numerals on phones.
+   ========================================================= */
+@media (max-width: 520px) {
+  .process-step-number {
+    font-style: normal;
+    font-size: 43px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    padding-left: 1px;
+  }
+}
