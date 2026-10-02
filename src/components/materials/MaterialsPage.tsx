@@ -51,27 +51,26 @@ export default function MaterialsPage() {
 
     if (reduceMotion) return;
 
-    const heroImage = section.querySelector<HTMLElement>(".materials-hero-image");
     const heroKickerLine = section.querySelector<HTMLElement>(".materials-hero-kicker-line");
     const qualities = section.querySelectorAll<HTMLElement>(".materials-quality");
     const useRows = section.querySelectorAll<HTMLElement>(".materials-use-row");
     const backgroundWord = section.querySelector<HTMLElement>(".materials-background-word");
 
     const ctx = gsap.context(() => {
+      // Hero: entrada sencilla y limpia, sin desplazamientos bruscos.
       gsap.from(".materials-hero-line", {
-        yPercent: 115,
-        duration: 1.2,
-        stagger: 0.12,
-        ease: "power4.out",
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power2.out",
       });
 
       gsap.from(".materials-hero-kicker, .materials-hero-copy", {
-        y: 24,
         opacity: 0,
         duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        delay: 0.3,
+        stagger: 0.1,
+        ease: "power2.out",
+        delay: 0.15,
       });
 
       if (heroKickerLine) {
@@ -81,20 +80,6 @@ export default function MaterialsPage() {
           duration: 1.1,
           ease: "power3.inOut",
           delay: 0.45,
-        });
-      }
-
-      if (heroImage) {
-        gsap.to(heroImage, {
-          scale: 1.08,
-          yPercent: 5,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".materials-hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.5,
-          },
         });
       }
 
