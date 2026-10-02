@@ -40,6 +40,7 @@ const uses = [
 
 export default function MaterialsPage() {
   const sectionRef = useRef<HTMLElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -51,13 +52,59 @@ export default function MaterialsPage() {
 
     if (reduceMotion) return;
 
+    const heroImage = heroImageRef.current;
     const heroKickerLine = section.querySelector<HTMLElement>(".materials-hero-kicker-line");
     const qualities = section.querySelectorAll<HTMLElement>(".materials-quality");
     const useRows = section.querySelectorAll<HTMLElement>(".materials-use-row");
     const backgroundWord = section.querySelector<HTMLElement>(".materials-background-word");
 
     const ctx = gsap.context(() => {
-      // Hero: entrada sencilla y limpia, sin desplazamientos bruscos.
+      if (heroImage) {
+        const intro = gsap.timeline();
+        intro.fromTo(
+          heroImage,
+          {
+            scale: 1.07,
+            opacity: 1,
+            clipPath: "inset(0% 0% 100% 0%)",
+          },
+          {
+            scale: 1.05,
+            opacity: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.8,
+            ease: "power4.inOut",
+          },
+          0
+        );
+
+        gsap.timeline({
+          repeat: -1,
+          yoyo: true,
+          delay: 2.6,
+          defaults: { ease: "sine.inOut" },
+        })
+          .to(heroImage, {
+            scale: 1.075,
+            xPercent: -0.25,
+            yPercent: -0.15,
+            duration: 10,
+          })
+          .to(heroImage, {
+            scale: 1.055,
+            xPercent: 0.2,
+            yPercent: 0.15,
+            duration: 12,
+          })
+          .to(heroImage, {
+            scale: 1.08,
+            xPercent: -0.15,
+            yPercent: 0.2,
+            duration: 11,
+          });
+      }
+
+      // El texto mantiene su entrada limpia; la imagen usa el mismo movimiento que Home.
       gsap.from(".materials-hero-line", {
         opacity: 0,
         duration: 1,
@@ -188,7 +235,7 @@ export default function MaterialsPage() {
   return (
     <section ref={sectionRef} className="materials-page">
       <section className="materials-hero">
-        <div className="materials-hero-image" aria-hidden="true" />
+        <div ref={heroImageRef} className="materials-hero-image" aria-hidden="true" />
         <div className="materials-hero-overlay" aria-hidden="true" />
 
         <div className="materials-container materials-hero-inner">
