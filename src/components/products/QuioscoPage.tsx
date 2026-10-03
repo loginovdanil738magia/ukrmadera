@@ -39,6 +39,7 @@ export default function QuioscoPage() {
   const [activeImage, setActiveImage] = useState(0);
   const [activePlan, setActivePlan] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [planLightboxOpen, setPlanLightboxOpen] = useState(false);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -111,7 +112,7 @@ export default function QuioscoPage() {
           <div className="quiosco-config-heading quiosco-reveal"><div><span className="quiosco-label">Configura tu quiosco</span><h2>Planos y<em> configuración.</em></h2></div><p>Consulta las vistas técnicas del modelo 5 × 3 y elige si quieres recibirlo con o sin montaje.</p></div>
           <div className="quiosco-config-grid">
             <div className="quiosco-plan-panel quiosco-reveal">
-              <div className="quiosco-plan-stage"><img src={plans[activePlan].src} alt={plans[activePlan].alt} /></div>
+              <button type="button" className="quiosco-plan-stage plan-expand-stage" onClick={() => setPlanLightboxOpen(true)} aria-label="Ampliar plano"><img src={plans[activePlan].src} alt={plans[activePlan].alt} /><span className="plan-expand-label">Ampliar</span></button>
               <div className="quiosco-plan-thumbs">{plans.map((plan,index)=><button key={plan.src} type="button" className={activePlan===index?"is-active":""} onClick={()=>setActivePlan(index)}><img src={plan.src} alt="" loading="lazy"/></button>)}</div>
             </div>
             <aside className="quiosco-offer quiosco-reveal">
@@ -124,6 +125,8 @@ export default function QuioscoPage() {
           </div>
         </div>
       </section>
+
+      {planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
 
       <section className="quiosco-story"><div className="quiosco-container quiosco-story-grid"><div className="quiosco-reveal"><span className="quiosco-label">El modelo</span><h2>Un punto de encuentro<em> hecho en madera.</em></h2></div><div className="quiosco-story-copy quiosco-reveal"><p>Este quiosco de madera está pensado para impulsar un negocio o crear un espacio práctico para recibir invitados. Su diseño permite adaptarlo al uso que necesites y convertirlo en un punto de atención con una presencia cálida y reconocible.</p><p>Las dos aperturas ajustables permiten abrir el quiosco para exponer productos y atender al público, o cerrar sus laterales cuando sea necesario. Sus 15 m² ofrecen un interior compacto y funcional para usos comerciales y privados.</p></div></div></section>
 
