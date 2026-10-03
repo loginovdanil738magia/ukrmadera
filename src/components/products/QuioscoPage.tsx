@@ -43,11 +43,20 @@ export default function QuioscoPage() {
   useEffect(() => {
     const page = pageRef.current;
     const hero = heroImageRef.current;
-    if (!page || !hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!page || !hero) return;
+
+    // The hero must always be visible. Motion preference only disables animation.
+    gsap.set(hero, {
+      opacity: 1,
+      visibility: "visible",
+      clipPath: "inset(0 0 0% 0)",
+    });
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(hero, { scale: 1.07, clipPath: "inset(0 0 100% 0)" }, {
-        scale: 1.05, clipPath: "inset(0 0 0% 0)", duration: 1.8, ease: "power4.inOut",
+      gsap.fromTo(hero, { scale: 1.07, clipPath: "inset(0 0 100% 0)", opacity: 1 }, {
+        scale: 1.05, clipPath: "inset(0 0 0% 0)", opacity: 1, duration: 1.8, ease: "power4.inOut",
       });
       gsap.timeline({ repeat: -1, yoyo: true, delay: 2.6, defaults: { ease: "sine.inOut" } })
         .to(hero, { scale: 1.075, xPercent: -.25, yPercent: -.15, duration: 10 })
