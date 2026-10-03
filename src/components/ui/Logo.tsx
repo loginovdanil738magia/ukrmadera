@@ -15,9 +15,6 @@ export default function Logo({ priority = false }: LogoProps) {
                 priority={priority}
                 className="brand-logo-image"
             />
-            <span className="brand-logo-u-spinner" aria-hidden="true">
-                <span>U</span>
-            </span>
         </div>
     );
 }
