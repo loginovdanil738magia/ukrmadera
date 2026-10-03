@@ -324,9 +324,9 @@ export default function WhyUkrMadera() {
                         </span>
 
                         <p>
-                            Entendemos cada construcción como un espacio
-                            que debe responder a una forma de vivir,
-                            trabajar o disfrutar del entorno.
+                            Diseñamos espacios de madera que combinan
+                            funcionalidad, precisión y carácter para
+                            integrarse de forma natural en cada entorno.
                         </p>
                     </div>
                 </div>
