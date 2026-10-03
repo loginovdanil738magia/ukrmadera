@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", priority: 1, changeFrequency: "weekly" as const },
     { path: "/catalogo", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/materiales", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/nosotros", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/catalogo/casas/abrera", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/catalogo/casetas/everest", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/catalogo/quioscos/quiosco", priority: 0.8, changeFrequency: "monthly" as const },
