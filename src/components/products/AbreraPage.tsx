@@ -206,7 +206,7 @@ export default function AbreraPage() {
           <div className="ingrid-reveal">
             <span className="ingrid-label">Configuraciones</span>
             <h2>Elige cómo quieres<em> tu ABRERA.</em></h2>
-            <p>Selecciona una de las cuatro opciones publicadas para consultar su precio.</p>
+            <p>Selecciona la configuración que mejor se adapte a tu proyecto y consulta su precio.</p>
           </div>
 
           <div className="abrera-config-panel ingrid-reveal">
@@ -244,7 +244,7 @@ export default function AbreraPage() {
         <div className="ingrid-container">
           <div className="ingrid-feature-heading ingrid-reveal">
             <span className="ingrid-label ingrid-label-light">ABRERA</span>
-            <h2>Información<em> del catálogo original.</em></h2>
+            <h2>Espacios pensados<em> para vivir mejor.</em></h2>
           </div>
           <div className="ingrid-feature-grid">
             <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p></article>
@@ -257,9 +257,9 @@ export default function AbreraPage() {
       <section className="ingrid-specs">
         <div className="ingrid-container ingrid-specs-grid">
           <div className="ingrid-specs-heading ingrid-reveal">
-            <span className="ingrid-label">Datos publicados</span>
-            <h2>Información<em> verificada.</em></h2>
-            <p>Solo mostramos aquí datos que aparecen publicados en la web original de UkrMadera.</p>
+            <span className="ingrid-label">Características</span>
+            <h2>Información<em> del modelo.</em></h2>
+            <p>Consulta las principales características y dimensiones de la casa de madera ABRERA.</p>
           </div>
           <div className="ingrid-spec-list ingrid-reveal">
             {specs.map(([label, value]) => (
