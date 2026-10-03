@@ -262,10 +262,10 @@ export default function AbreraPage() {
                   </button>
                 ))}
               </div>
-              <Link href="/contacto" className="ingrid-button">
+              <span className="ingrid-button is-disabled" aria-disabled="true">
                 <span>Solicitar información</span>
                 <ArrowUpRight className="ui-arrow-icon" />
-              </Link>
+              </span>
             </aside>
           </div>
         </div>
@@ -310,10 +310,10 @@ export default function AbreraPage() {
           </div>
           <div className="ingrid-cta-copy ingrid-reveal">
             <p>Contacta con UkrMadera para consultar la configuración, condiciones y detalles del modelo ABRERA.</p>
-            <Link href="/contacto" className="ingrid-button">
+            <span className="ingrid-button is-disabled" aria-disabled="true">
               <span>Solicitar información</span>
               <ArrowUpRight className="ui-arrow-icon" />
-            </Link>
+            </span>
           </div>
         </div>
       </section>
