@@ -125,22 +125,6 @@ export default function Manifesto() {
       });
 
       /* =====================================================
-         SÍMBOLO
-         ===================================================== */
-
-      gsap.to(".manifesto-symbol-circle", {
-        rotate: 70,
-        ease: "none",
-
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 2,
-        },
-      });
-
-      /* =====================================================
          MADERA GIGANTE
          ===================================================== */
 
