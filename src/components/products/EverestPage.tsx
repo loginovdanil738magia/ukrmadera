@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
+import MediaLightbox from "@/components/products/MediaLightbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,7 +118,7 @@ export default function EverestPage() {
           <button type="button" className="everest-gallery-stage everest-reveal" onClick={() => setLightboxOpen(true)}><img ref={galleryImageRef} src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt} /><span>Ampliar</span></button>
           <div className="everest-gallery-thumbs">{generalGallery.map((image,index)=><button key={image.src} type="button" className={activeImage===index?"is-active":""} onClick={()=>changeGallery(index)}><img src={image.src} alt="" loading={index<3?"eager":"lazy"} /></button>)}</div>
         </div>
-        {lightboxOpen && <div className="everest-lightbox" role="dialog" aria-modal="true"><button className="everest-lightbox-close" onClick={()=>setLightboxOpen(false)}>Cerrar</button><button className="everest-lightbox-prev" onClick={()=>setActiveImage((activeImage-1+6)%6)}>←</button><img src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt}/><button className="everest-lightbox-next" onClick={()=>setActiveImage((activeImage+1)%6)}>→</button><span>{String(activeImage+1).padStart(2,"0")} / 06</span></div>}
+        <MediaLightbox open={lightboxOpen} items={generalGallery} activeIndex={activeImage} onChange={setActiveImage} onClose={() => setLightboxOpen(false)} />
       </section>
 
 
@@ -149,7 +150,7 @@ export default function EverestPage() {
         </div>
       </section>
 
-      {planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
+      <MediaLightbox open={planLightboxOpen} items={plans} activeIndex={activePlan} onChange={setActivePlan} onClose={() => setPlanLightboxOpen(false)} label="Plano ampliado" />
 
       <section className="everest-story">
         <div className="everest-container everest-story-grid">
