@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
@@ -19,9 +19,10 @@ gsap.registerPlugin(ScrollTrigger);
 type Filter = "todos" | ProductCategory;
 
 export default function CatalogGrid() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const requestedCategory = searchParams.get("categoria");
-  const initialFilter: Filter =
+  const urlFilter: Filter =
     requestedCategory &&
     catalogCategories.some((category) => category.id === requestedCategory)
       ? (requestedCategory as Filter)
@@ -30,11 +31,19 @@ export default function CatalogGrid() {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const heroBackgroundRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState<Filter>(initialFilter);
+  const [filter, setFilter] = useState<Filter>(urlFilter);
 
   useEffect(() => {
-    setFilter(initialFilter);
-  }, [initialFilter]);
+    setFilter(urlFilter);
+  }, [requestedCategory]);
+
+  const selectFilter = (nextFilter: Filter) => {
+    setFilter(nextFilter);
+    const href = nextFilter === "todos"
+      ? "/catalogo"
+      : `/catalogo?categoria=${encodeURIComponent(nextFilter)}`;
+    router.replace(href, { scroll: false });
+  };
 
   const visibleProducts = useMemo(
     () =>
@@ -206,7 +215,7 @@ export default function CatalogGrid() {
                     key={category.id}
                     type="button"
                     className={`catalog-filter-button ${active ? "is-active" : ""}`}
-                    onClick={() => setFilter(category.id)}
+                    onClick={() => selectFilter(category.id)}
                     aria-pressed={active}
                   >
                     <span>{category.label}</span>
