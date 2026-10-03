@@ -51,6 +51,7 @@ export default function AbreraPage() {
   const [configuration, setConfiguration] = useState(configurations[0]);
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [planLightboxOpen, setPlanLightboxOpen] = useState(false);
   const [activePlan, setActivePlan] = useState(0);
 
   const selectImage = (index: number) => {
@@ -219,9 +220,9 @@ export default function AbreraPage() {
 
           <div className="abrera-technical-grid">
             <div className="abrera-plan-panel ingrid-reveal">
-              <div className="abrera-plan-stage">
+              <button type="button" className="abrera-plan-stage plan-expand-stage" onClick={() => setPlanLightboxOpen(true)} aria-label="Ampliar plano">
                 <img src={plans[activePlan].src} alt={plans[activePlan].alt} />
-              </div>
+              <span className="plan-expand-label">Ampliar</span></button>
               <div className="abrera-plan-thumbs">
                 {plans.map((plan, index) => (
                   <button
@@ -278,7 +279,9 @@ export default function AbreraPage() {
             <h2>Espacios pensados<em> para vivir mejor.</em></h2>
           </div>
           <div className="ingrid-feature-grid">
-            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p></article>
+            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p>{planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
+
+      </article>
             <article className="ingrid-reveal"><span>02</span><h3>Salón de 37 m²</h3><p>Un gran espacio previsto para instalar una cocina amplia y una zona de comedor.</p></article>
             <article className="ingrid-reveal"><span>03</span><h3>4 baños</h3><p>Cuatro baños independientes y abundantes huecos para favorecer la entrada de luz natural.</p></article>
           </div>
