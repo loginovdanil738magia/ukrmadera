@@ -21,7 +21,7 @@ const navigation = [
     },
     {
         label: "Proyectos",
-        href: "/proyectos",
+        href: "/#proyectos",
     },
     {
         label: "Nosotros",
