@@ -37,7 +37,7 @@ export default function Footer() {
 
           <div className="site-footer-column site-footer-column-last">
             <span className="site-footer-label">UkrMadera</span>
-            <span className="site-footer-disabled" aria-disabled="true">Nosotros</span>
+            <Link href="/nosotros">Nosotros</Link>
             <span className="site-footer-disabled" aria-disabled="true">Contacto</span>
             <span className="site-footer-location">Sevilla · España</span>
           </div>
