@@ -7342,3 +7342,16 @@ div {
   .process-step-text{font-size:14px;line-height:1.75}
   .home-closing-description{font-size:14px;line-height:1.8}
 }
+
+
+/* LINKS — unavailable destinations */
+.is-disabled{
+  cursor:default !important;
+  pointer-events:none !important;
+}
+.nav-link.is-disabled,.contact-link.is-disabled,.mobile-nav-link.is-disabled{
+  opacity:.38;
+}
+.project-discover.is-disabled,.mobile-project-link.is-disabled,.projects-all-link.is-disabled{
+  opacity:.42;
+}
