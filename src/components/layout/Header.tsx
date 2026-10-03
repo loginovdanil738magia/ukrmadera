@@ -14,18 +14,22 @@ const navigation = [
     {
         label: "Inicio",
         href: "/",
+        disabled: false,
     },
     {
         label: "Catálogo",
         href: "/catalogo",
+        disabled: false,
     },
     {
         label: "Proyectos",
         href: "/#colecciones",
+        disabled: false,
     },
     {
         label: "Nosotros",
         href: "/nosotros",
+        disabled: true,
     },
 ];
 
@@ -182,28 +186,22 @@ export default function Header() {
                         className="desktop-navigation"
                         aria-label="Navegación principal"
                     >
-                        {navigation.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="nav-link"
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
+                        {navigation.map((item) =>
+                            item.disabled ? (
+                                <span key={item.href} className="nav-link is-disabled" aria-disabled="true">{item.label}</span>
+                            ) : (
+                                <Link key={item.href} href={item.href} className="nav-link">{item.label}</Link>
+                            )
+                        )}
                     </nav>
 
                     {/* ACTIONS */}
 
                     <div className="header-actions">
-                        <Link
-                            href="/contacto"
-                            className="contact-link"
-                        >
+                        <span className="contact-link is-disabled" aria-disabled="true">
                             Contacto
-
                             <ArrowUpRight className="ui-arrow-up-right" />
-                        </Link>
+                        </span>
 
                         <button
                             type="button"
@@ -242,42 +240,24 @@ export default function Header() {
                     <nav className="mobile-navigation">
                         {navigation.map(
                             (item, index) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="mobile-nav-link"
-                                    onClick={() =>
-                                        setMenuOpen(false)
-                                    }
-                                >
-                                    <span className="mobile-nav-number">
-                                        {String(
-                                            index + 1
-                                        ).padStart(2, "0")}
-                                    </span>
-
-                                    <span>
-                                        {item.label}
-                                    </span>
+                                item.disabled ? (
+                                <span key={item.href} className="mobile-nav-link is-disabled" aria-disabled="true">
+                                    <span className="mobile-nav-number">{String(index + 1).padStart(2, "0")}</span>
+                                    <span>{item.label}</span>
+                                </span>
+                            ) : (
+                                <Link key={item.href} href={item.href} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>
+                                    <span className="mobile-nav-number">{String(index + 1).padStart(2, "0")}</span>
+                                    <span>{item.label}</span>
                                 </Link>
+                            )
                             )
                         )}
 
-                        <Link
-                            href="/contacto"
-                            className="mobile-nav-link"
-                            onClick={() =>
-                                setMenuOpen(false)
-                            }
-                        >
-                            <span className="mobile-nav-number">
-                                05
-                            </span>
-
-                            <span>
-                                Contacto
-                            </span>
-                        </Link>
+                        <span className="mobile-nav-link is-disabled" aria-disabled="true">
+                            <span className="mobile-nav-number">05</span>
+                            <span>Contacto</span>
+                        </span>
                     </nav>
 
                     <div className="mobile-menu-footer">
