@@ -29,7 +29,7 @@ const navigation = [
     {
         label: "Nosotros",
         href: "/nosotros",
-        disabled: true,
+        disabled: false,
     },
 ];
 
