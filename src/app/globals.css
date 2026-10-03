@@ -7677,10 +7677,9 @@ div {
   font-size:clamp(17px,1.45vw,25px);
   font-style:italic;
   line-height:1;
-  transform-origin:50% 50%;
-  animation:ukrmadera-monogram-spin 7s linear infinite;
+  transform-origin:center;
+  will-change:transform;
+  animation:ukrmadera-monogram-spin 6s linear infinite !important;
 }
 @keyframes ukrmadera-monogram-spin{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){
-  .brand-logo-u-spinner>span{animation:none}
-}
+
