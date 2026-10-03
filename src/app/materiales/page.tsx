@@ -3,16 +3,11 @@ import Header from "@/components/layout/Header";
 import MaterialsPage from "@/components/materials/MaterialsPage";
 
 export const metadata: Metadata = {
-  title: "Materiales | UkrMadera",
-  description:
-    "Descubre por qué la madera es la base de nuestros espacios: calidez, versatilidad y una construcción más respetuosa con el entorno.",
+  title: "Materiales para construcciones de madera",
+  description: "Conoce la madera y los materiales empleados por UkrMadera: calidez, versatilidad y soluciones pensadas para construcciones de madera.",
+  alternates: { canonical: "/materiales" },
 };
 
 export default function MaterialesPage() {
-  return (
-    <main>
-      <Header />
-      <MaterialsPage />
-    </main>
-  );
+  return <main><Header /><MaterialsPage /></main>;
 }
