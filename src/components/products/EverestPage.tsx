@@ -110,6 +110,16 @@ export default function EverestPage() {
         </div>
       </section>
 
+      <section className="everest-gallery">
+        <div className="everest-container">
+          <div className="everest-gallery-heading everest-reveal"><div><span className="everest-label">Galería</span><h2>Arquitectura que<em> abre el espacio.</em></h2></div><span>{String(activeImage + 1).padStart(2,"0")} / 06</span></div>
+          <button type="button" className="everest-gallery-stage everest-reveal" onClick={() => setLightboxOpen(true)}><img ref={galleryImageRef} src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt} /><span>Ampliar</span></button>
+          <div className="everest-gallery-thumbs">{generalGallery.map((image,index)=><button key={image.src} type="button" className={activeImage===index?"is-active":""} onClick={()=>changeGallery(index)}><img src={image.src} alt="" loading={index<3?"eager":"lazy"} /></button>)}</div>
+        </div>
+        {lightboxOpen && <div className="everest-lightbox" role="dialog" aria-modal="true"><button className="everest-lightbox-close" onClick={()=>setLightboxOpen(false)}>Cerrar</button><button className="everest-lightbox-prev" onClick={()=>setActiveImage((activeImage-1+6)%6)}>←</button><img src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt}/><button className="everest-lightbox-next" onClick={()=>setActiveImage((activeImage+1)%6)}>→</button><span>{String(activeImage+1).padStart(2,"0")} / 06</span></div>}
+      </section>
+
+
       <section className="everest-configurator">
         <div className="everest-container">
           <div className="everest-config-heading everest-reveal"><div><span className="everest-label">Configura tu Everest</span><h2>Un diseño.<em> Cuatro tamaños.</em></h2></div><p>Elige primero el tamaño que necesitas. Después selecciona si quieres el modelo con o sin montaje.</p></div>
@@ -143,15 +153,6 @@ export default function EverestPage() {
           <div className="everest-reveal"><span className="everest-label">El modelo</span><h2>Tu propio refugio,<em> a tu manera.</em></h2></div>
           <div className="everest-story-copy everest-reveal"><p>Everest combina paz, funcionalidad y una arquitectura compacta. Puede convertirse en oficina, gimnasio, estudio creativo o un espacio de descanso conectado con el jardín.</p><p>Su diseño moderno incorpora tejado plano, grandes ventanales y puertas de suelo a techo, revestimiento contemporáneo y abundante entrada de luz natural. También puede ampliarse con una terraza opcional.</p></div>
         </div>
-      </section>
-
-      <section className="everest-gallery">
-        <div className="everest-container">
-          <div className="everest-gallery-heading everest-reveal"><div><span className="everest-label">Galería</span><h2>Arquitectura que<em> abre el espacio.</em></h2></div><span>{String(activeImage + 1).padStart(2,"0")} / 06</span></div>
-          <button type="button" className="everest-gallery-stage everest-reveal" onClick={() => setLightboxOpen(true)}><img ref={galleryImageRef} src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt} /><span>Ampliar</span></button>
-          <div className="everest-gallery-thumbs">{generalGallery.map((image,index)=><button key={image.src} type="button" className={activeImage===index?"is-active":""} onClick={()=>changeGallery(index)}><img src={image.src} alt="" loading={index<3?"eager":"lazy"} /></button>)}</div>
-        </div>
-        {lightboxOpen && <div className="everest-lightbox" role="dialog" aria-modal="true"><button className="everest-lightbox-close" onClick={()=>setLightboxOpen(false)}>Cerrar</button><button className="everest-lightbox-prev" onClick={()=>setActiveImage((activeImage-1+6)%6)}>←</button><img src={generalGallery[activeImage].src} alt={generalGallery[activeImage].alt}/><button className="everest-lightbox-next" onClick={()=>setActiveImage((activeImage+1)%6)}>→</button><span>{String(activeImage+1).padStart(2,"0")} / 06</span></div>}
       </section>
 
       <section className="everest-features">
