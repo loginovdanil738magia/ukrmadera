@@ -151,7 +151,7 @@ export default function FeaturedProjects() {
   }, [activeProject, activeImage]);
 
   return (
-    <section ref={sectionRef} className="featured-projects">
+    <section id="proyectos" ref={sectionRef} className="featured-projects">
       <div className="projects-container">
         <header className="projects-header">
           <div>
