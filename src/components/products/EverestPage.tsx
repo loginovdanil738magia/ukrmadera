@@ -44,6 +44,7 @@ export default function EverestPage() {
   const [activeImage, setActiveImage] = useState(0);
   const [activePlan, setActivePlan] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [planLightboxOpen, setPlanLightboxOpen] = useState(false);
 
   const model = models[size];
   const offer = model.prices[finish];
@@ -130,7 +131,7 @@ export default function EverestPage() {
 
           <div className="everest-config-grid">
             <div className="everest-plan-panel everest-reveal">
-              <div className="everest-plan-stage"><img ref={planImageRef} src={plans[activePlan].src} alt={plans[activePlan].alt} /></div>
+              <button type="button" className="everest-plan-stage plan-expand-stage" onClick={() => setPlanLightboxOpen(true)} aria-label="Ampliar plano"><img ref={planImageRef} src={plans[activePlan].src} alt={plans[activePlan].alt} /><span className="plan-expand-label">Ampliar</span></button>
               <div className="everest-plan-thumbs">{plans.map((plan, index) => <button key={plan.src} type="button" className={activePlan === index ? "is-active" : ""} onClick={() => setActivePlan(index)}><img src={plan.src} alt="" loading="lazy" /></button>)}</div>
             </div>
 
@@ -147,6 +148,8 @@ export default function EverestPage() {
           </div>
         </div>
       </section>
+
+      {planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
 
       <section className="everest-story">
         <div className="everest-container everest-story-grid">
