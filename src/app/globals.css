@@ -7317,3 +7317,8 @@ div {
 /* GARAGE DOBLE 1 */
 .garage-double-page .garage-double-hero-image{background-image:url("/images/products/garaje-doble1/doble1_1.webp")}
 @media(max-width:600px){.garage-double-page .quiosco-hero h1{font-size:clamp(48px,15vw,70px);white-space:nowrap}}
+
+
+/* HANOY 6x6 */
+.hanoy-page .hanoy-hero-image{background-image:url("/images/products/hanoy/hanoy6x6_1.webp")}
+@media(max-width:600px){.hanoy-page .quiosco-hero h1{font-size:clamp(54px,17vw,78px);white-space:nowrap}}
