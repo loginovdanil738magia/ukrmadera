@@ -8,13 +8,13 @@ import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const gallery = Array.from({ length: 10 }, (_, index) => ({
+const gallery = Array.from({ length: 8 }, (_, index) => ({
   src: `/images/products/abrera/abrera-${String(index + 1).padStart(2, "0")}.webp`,
   alt: `Casa de madera ABRERA · vista ${String(index + 1).padStart(2, "0")}`,
 }));
 
-const plans = Array.from({ length: 4 }, (_, index) => ({
-  src: `/images/products/abrera/abrera-${String(index + 11).padStart(2, "0")}.webp`,
+const plans = Array.from({ length: 6 }, (_, index) => ({
+  src: `/images/products/abrera/abrera-${String(index + 9).padStart(2, "0")}.webp`,
   alt: `Casa de madera ABRERA · plano y vista técnica ${index + 1}`,
 }));
 
