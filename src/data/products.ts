@@ -88,7 +88,8 @@ export const products: CatalogProduct[] = [
     description:
       "Garaje de madera para dos vehículos con revestimiento vertical y una presencia contemporánea.",
     variants: [
-      { id: "6x6-sin", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 6900, note: "34 mm + revestimiento sin montaje · 2 coches" },\n      { id: "6x6-con", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 10540, note: "34 mm + revestimiento con montaje · 2 coches" },
+      { id: "6x6-sin", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 6900, note: "34 mm + revestimiento sin montaje · 2 coches" },
+      { id: "6x6-con", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 10540, note: "34 mm + revestimiento con montaje · 2 coches" },
     ],
   },
   {
