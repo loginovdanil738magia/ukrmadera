@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 
 import SmoothScroll from "@/components/animations/SmoothScroll";
 import ProjectCursor from "@/components/animations/ProjectCursor";
-import NavigationGuard from "@/components/animations/NavigationGuard";
 import Footer from "@/components/layout/Footer";
 
 import "./globals.css";
@@ -64,7 +63,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <SmoothScroll />
         <ProjectCursor />
-        <NavigationGuard />
         {children}
         <Footer />
       </body>
