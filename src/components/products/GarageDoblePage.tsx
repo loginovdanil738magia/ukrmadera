@@ -116,7 +116,7 @@ export default function GarageDoblePage() {
               <div className="quiosco-offer-price"><span>Precio</span><strong>{formatPrice(offer.price)}</strong></div>
               <div className="quiosco-offer-facts"><div><span>Capacidad</span><strong>2 coches</strong></div><div><span>Dimensiones</span><strong>6 × 6 m</strong></div><div><span>Código</span><strong>321</strong></div></div>
               <div className="quiosco-finish-selector"><span>Configuración</span>{(Object.keys(finishes) as FinishId[]).map(id=><button key={id} type="button" className={finish===id?"is-active":""} onClick={()=>setFinish(id)}><span>{id==="sin-montaje"?"Sin montaje":"Con montaje"}</span><strong>{formatPrice(finishes[id].price)}</strong><small>{finishes[id].label}</small></button>)}</div>
-              <Link href="/contacto" className="quiosco-cta-button"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon"/></Link>
+              <span className="quiosco-cta-button is-disabled" aria-disabled="true"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon"/></span>
             </aside>
           </div>
         </div>
@@ -126,6 +126,6 @@ export default function GarageDoblePage() {
 
       <section className="quiosco-features"><div className="quiosco-container"><div className="quiosco-features-heading quiosco-reveal"><span className="quiosco-label quiosco-label-light">Características</span><h2>Espacio para dos.<em> Presencia contemporánea.</em></h2></div><div className="quiosco-feature-grid"><article className="quiosco-reveal"><span>01</span><h3>2 coches</h3><p>Una distribución amplia de 6 × 6 m con espacio suficiente para maniobrar cómodamente dos vehículos.</p></article><article className="quiosco-reveal"><span>02</span><h3>Revestimiento vertical</h3><p>Acabado exterior en madera de aspecto moderno que refuerza la presencia contemporánea del garaje.</p></article><article className="quiosco-reveal"><span>03</span><h3>Tejado a dos aguas</h3><p>Una solución elegante y compacta diseñada para favorecer un drenaje eficiente del agua.</p></article></div></div></section>
 
-      <section className="quiosco-closing"><div className="quiosco-container quiosco-closing-grid"><div className="quiosco-reveal"><span className="quiosco-label quiosco-label-light">Garaje Doble 1</span><h2>Dos coches.<em> Un espacio protegido.</em></h2></div><div className="quiosco-reveal"><p>Cuéntanos cómo quieres configurar tu garaje y te ayudaremos a elegir la opción adecuada, con o sin montaje.</p><Link href="/contacto" className="quiosco-cta-button"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon"/></Link></div></div></section>
+      <section className="quiosco-closing"><div className="quiosco-container quiosco-closing-grid"><div className="quiosco-reveal"><span className="quiosco-label quiosco-label-light">Garaje Doble 1</span><h2>Dos coches.<em> Un espacio protegido.</em></h2></div><div className="quiosco-reveal"><p>Cuéntanos cómo quieres configurar tu garaje y te ayudaremos a elegir la opción adecuada, con o sin montaje.</p><span className="quiosco-cta-button is-disabled" aria-disabled="true"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon"/></span></div></div></section>
     </article>
   );}
