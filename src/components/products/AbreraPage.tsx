@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
+import MediaLightbox from "@/components/products/MediaLightbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -176,15 +177,7 @@ export default function AbreraPage() {
           </div>
         </div>
 
-        {lightboxOpen && (
-          <div className="abrera-lightbox" role="dialog" aria-modal="true" aria-label="Galería ampliada">
-            <button type="button" className="abrera-lightbox-close" onClick={() => setLightboxOpen(false)} aria-label="Cerrar galería">Cerrar</button>
-            <button type="button" className="abrera-lightbox-nav abrera-lightbox-prev" onClick={() => setActiveImage((activeImage - 1 + gallery.length) % gallery.length)} aria-label="Imagen anterior">←</button>
-            <img src={gallery[activeImage].src} alt={gallery[activeImage].alt} />
-            <button type="button" className="abrera-lightbox-nav abrera-lightbox-next" onClick={() => setActiveImage((activeImage + 1) % gallery.length)} aria-label="Imagen siguiente">→</button>
-            <span className="abrera-lightbox-count">{String(activeImage + 1).padStart(2, "0")} / {gallery.length}</span>
-          </div>
-        )}
+        <MediaLightbox open={lightboxOpen} items={gallery} activeIndex={activeImage} onChange={setActiveImage} onClose={() => setLightboxOpen(false)} />
       </section>
 
       <section className="ingrid-intro">
@@ -279,7 +272,7 @@ export default function AbreraPage() {
             <h2>Espacios pensados<em> para vivir mejor.</em></h2>
           </div>
           <div className="ingrid-feature-grid">
-            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p>{planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
+            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p><MediaLightbox open={planLightboxOpen} items={plans} activeIndex={activePlan} onChange={setActivePlan} onClose={() => setPlanLightboxOpen(false)} label="Plano ampliado" />
 
       </article>
             <article className="ingrid-reveal"><span>02</span><h3>Salón de 37 m²</h3><p>Un gran espacio previsto para instalar una cocina amplia y una zona de comedor.</p></article>
