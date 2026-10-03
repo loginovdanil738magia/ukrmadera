@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
@@ -20,22 +20,21 @@ type Filter = "todos" | ProductCategory;
 
 export default function CatalogGrid() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const requestedCategory = searchParams.get("categoria");
-  const urlFilter: Filter =
-    requestedCategory &&
-    catalogCategories.some((category) => category.id === requestedCategory)
-      ? (requestedCategory as Filter)
-      : "todos";
+  const [filter, setFilter] = useState<Filter>("todos");
 
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const heroBackgroundRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState<Filter>(urlFilter);
-
   useEffect(() => {
-    setFilter(urlFilter);
-  }, [requestedCategory]);
+    const requestedCategory = new URLSearchParams(window.location.search).get("categoria");
+    const nextFilter: Filter =
+      requestedCategory &&
+      catalogCategories.some((category) => category.id === requestedCategory)
+        ? (requestedCategory as Filter)
+        : "todos";
+
+    setFilter(nextFilter);
+  }, []);
 
   const selectFilter = (nextFilter: Filter) => {
     setFilter(nextFilter);
