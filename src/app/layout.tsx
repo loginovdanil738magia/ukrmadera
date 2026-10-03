@@ -7,6 +7,7 @@ import {
 import SmoothScroll from "@/components/animations/SmoothScroll";
 import ProjectCursor from "@/components/animations/ProjectCursor";
 import NavigationGuard from "@/components/animations/NavigationGuard";
+import Footer from "@/components/layout/Footer";
 
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         <NavigationGuard />
 
         {children}
+        <Footer />
       </body>
     </html>
   );
