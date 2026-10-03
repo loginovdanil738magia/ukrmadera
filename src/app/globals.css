@@ -7683,3 +7683,17 @@ div {
 }
 @keyframes ukrmadera-monogram-spin{to{transform:rotate(360deg)}}
 
+
+
+/* HOME MANIFESTO — continuous U seal rotation */
+.manifesto-symbol-circle{
+  animation:manifesto-u-spin 9s linear infinite;
+  transform-origin:50% 50%;
+}
+@keyframes manifesto-u-spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .manifesto-symbol-circle{animation:none}
+}
