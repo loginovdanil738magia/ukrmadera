@@ -142,7 +142,7 @@ export default function EverestPage() {
                 <span>Configuración</span>
                 {(Object.keys(finishes) as FinishId[]).map((id) => <button key={id} type="button" className={finish === id ? "is-active" : ""} onClick={() => setFinish(id)}><span>{id === "sin-montaje" ? "Sin montaje" : "Con montaje"}</span><strong>{formatPrice(model.prices[id].price)}</strong><small>{finishes[id]}</small></button>)}
               </div>
-              <Link href="/contacto" className="everest-cta-button"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon" /></Link>
+              <span className="everest-cta-button is-disabled" aria-disabled="true"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon" /></span>
             </aside>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function EverestPage() {
         </div>
       </section>
 
-      <section className="everest-closing"><div className="everest-container everest-closing-grid"><div className="everest-reveal"><span className="everest-label everest-label-light">Everest</span><h2>Encuentra el tamaño<em> que encaja contigo.</em></h2></div><div className="everest-reveal"><p>Cuéntanos qué uso quieres darle y te ayudaremos a elegir el modelo y la configuración adecuados.</p><Link href="/contacto" className="everest-cta-button"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon" /></Link></div></div></section>
+      <section className="everest-closing"><div className="everest-container everest-closing-grid"><div className="everest-reveal"><span className="everest-label everest-label-light">Everest</span><h2>Encuentra el tamaño<em> que encaja contigo.</em></h2></div><div className="everest-reveal"><p>Cuéntanos qué uso quieres darle y te ayudaremos a elegir el modelo y la configuración adecuados.</p><span className="everest-cta-button is-disabled" aria-disabled="true"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon" /></span></div></div></section>
     </article>
   );
 }
