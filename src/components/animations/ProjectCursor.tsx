@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 export default function ProjectCursor() {
+  const pathname = usePathname();
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,9 +45,11 @@ export default function ProjectCursor() {
       cursor.classList.remove("is-visible");
     };
 
+    cursor.classList.remove("is-visible");
+
     const cards =
       document.querySelectorAll(
-        ".category-card-media"
+        ".categories .category-card-media"
       );
 
     cards.forEach((card) => {
@@ -83,7 +87,7 @@ export default function ProjectCursor() {
         );
       });
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <div
