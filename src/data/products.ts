@@ -98,11 +98,12 @@ export const products: CatalogProduct[] = [
     name: "Hanoy 6×6",
     category: "pergolas",
     categoryLabel: "Pérgola para coches",
-    image: "/images/categories/pergolas.jpg",
+    image: "/images/products/hanoy/hanoy6x6_1.webp",
     description:
       "Cochera doble de madera con tejado plano, diseñada para proteger dos vehículos con una estética limpia.",
     variants: [
-      { id: "6x6", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 3000, note: "2 coches" },
+      { id: "6x6-sin", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 3000, note: "Sin montaje · 2 coches" },
+      { id: "6x6-con", label: "6 × 6 m", dimensions: "6 × 6 m", area: 36, price: 4200, note: "Con montaje · 2 coches" },
     ],
   },
 ];
