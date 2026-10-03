@@ -7694,6 +7694,10 @@ div {
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
 }
-@media(prefers-reduced-motion:reduce){
-  .manifesto-symbol-circle{animation:none}
+@media (max-width: 900px) {
+  .manifesto-symbol-circle {
+    animation: manifesto-u-spin 9s linear infinite !important;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
 }
