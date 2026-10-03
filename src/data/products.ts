@@ -45,7 +45,7 @@ export const products: CatalogProduct[] = [
   {
     id: "everest",
     slug: "everest",
-    name: "Everest",
+    name: "EVEREST",
     category: "casetas",
     categoryLabel: "Caseta de jardín",
     image: "/images/products/everest/everest1.webp",
