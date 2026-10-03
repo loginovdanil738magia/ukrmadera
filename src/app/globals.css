@@ -7267,3 +7267,48 @@ div {
 
 @media(max-width:900px){.quiosco-hero-content,.quiosco-config-heading,.quiosco-config-grid,.quiosco-story-grid,.quiosco-closing-grid{grid-template-columns:1fr;gap:45px}.quiosco-plan-stage{height:min(65vw,570px)}.quiosco-feature-grid{grid-template-columns:1fr}.quiosco-feature-grid article{min-height:0;padding:40px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}}
 @media(max-width:600px){.quiosco-container{width:calc(100% - 40px)}.quiosco-hero-inner{padding-top:calc(var(--header-height) + 35px);padding-bottom:34px}.quiosco-breadcrumb{gap:6px;font-size:6.5px;white-space:nowrap}.quiosco-hero-content{gap:38px}.quiosco-hero h1{font-size:clamp(50px,16vw,74px);line-height:.84}.quiosco-hero-summary p{font-size:13px}.quiosco-configurator{padding:75px 0}.quiosco-config-heading h2,.quiosco-story h2,.quiosco-features h2,.quiosco-closing h2{font-size:clamp(45px,13vw,60px)}.quiosco-plan-panel{padding:10px}.quiosco-plan-stage{height:75vw}.quiosco-plan-thumbs{display:flex;overflow-x:auto;scrollbar-width:none}.quiosco-plan-thumbs button{flex:0 0 82px}.quiosco-offer{padding:28px 20px}.quiosco-offer-price{align-items:flex-start;flex-direction:column}.quiosco-offer-facts{grid-template-columns:1fr 1fr}.quiosco-gallery{padding:70px 0}.quiosco-gallery-heading{align-items:flex-start}.quiosco-gallery h2{font-size:clamp(43px,12.5vw,56px)}.quiosco-gallery-stage{height:min(55vh,390px)}.quiosco-gallery-thumbs{display:flex;overflow-x:auto;scrollbar-width:none}.quiosco-gallery-thumbs button{flex:0 0 88px}.quiosco-lightbox{padding:55px 12px}.quiosco-lightbox-prev,.quiosco-lightbox-next{top:auto;bottom:20px}.quiosco-lightbox-prev{left:18px}.quiosco-lightbox-next{right:18px}}
+
+
+/* QUIOSCO — mobile gallery alignment with ABRERA */
+@media (max-width: 600px) {
+  .quiosco-gallery {
+    padding: 70px 0;
+  }
+
+  .quiosco-gallery-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .quiosco-gallery-heading > div {
+    min-width: 0;
+  }
+
+  .quiosco-gallery-heading > span {
+    min-width: 70px;
+    padding: 15px 10px;
+    border: 1px solid rgba(23,25,22,.22);
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.55;
+    letter-spacing: .14em;
+  }
+
+  .quiosco-gallery h2 {
+    font-size: clamp(50px, 15vw, 68px);
+    line-height: .88;
+    letter-spacing: -.06em;
+  }
+
+  .quiosco-gallery h2 em {
+    font-size: 1.02em;
+    line-height: .88;
+  }
+
+  .quiosco-gallery-stage {
+    height: min(62vw, 430px);
+  }
+}
