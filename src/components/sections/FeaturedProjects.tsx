@@ -14,21 +14,21 @@ const projects = [
     images: ["/images/projects/everest-01.jpg", "/images/projects/everest-02.jpg", "/images/projects/everest-03.jpg"],
     description: "Arquitectura contemporánea y luminosa, diseñada para crear un espacio independiente de trabajo, ocio o descanso.",
     details: ["15 m²", "Aislamiento térmico", "Ventanales suelo-techo", "Terraza opcional"],
-    href: "/catalogo/casetas/everest-5x3",
+    href: "/catalogo/casetas/everest",
   },
   {
     number: "02", title: "Oma", model: "6 × 6 m", category: "Casa de jardín",
     images: ["/images/projects/oma-01.jpg", "/images/projects/oma-02.jpg", "/images/projects/oma-03.jpg"],
     description: "Un espacio cálido y funcional que combina arquitectura tradicional, zonas interiores independientes y un amplio porche exterior.",
     details: ["36 m²", "Porche de 8 m²", "Aislamiento térmico", "Dormitorio + baño"],
-    href: "/catalogo/casetas/oma-6x6",
+    href: null,
   },
   {
     number: "03", title: "Pryory", model: "6 × 3 m", category: "Estudio de madera",
     images: ["/images/projects/pryory-01.jpg", "/images/projects/pryory-02.jpg", "/images/projects/pryory-03.jpg"],
     description: "Un volumen compacto de líneas contemporáneas con grandes superficies acristaladas y una conexión directa entre interior y jardín.",
     details: ["18 m²", "Grandes ventanales", "Aislamiento opcional", "Terraza opcional"],
-    href: "/catalogo/casetas/pryory-6x3",
+    href: null,
   },
 ];
 
@@ -189,7 +189,7 @@ export default function FeaturedProjects() {
                   <div className="project-scroll-main">
                     <h3>{project.title}</h3><span className="project-model">{project.model}</span><p className="project-description">{project.description}</p>
                     <div className="project-details">{project.details.map((detail) => <div key={detail} className="project-detail"><span className="project-detail-dot" /><span>{detail}</span></div>)}</div>
-                    <Link href={project.href} className="project-discover"><span>Descubrir modelo</span><span className="project-discover-arrow" aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link>
+                    {project.href ? <Link href={project.href} className="project-discover"><span>Descubrir modelo</span><span className="project-discover-arrow" aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link> : <span className="project-discover is-disabled" aria-disabled="true"><span>Descubrir modelo</span><span className="project-discover-arrow" aria-hidden="true"><ArrowIcon direction="up-right" /></span></span>}
                   </div>
                 </article>
               ))}
@@ -210,12 +210,12 @@ export default function FeaturedProjects() {
               <span className="mobile-project-model">{project.model}</span>
               <p className="mobile-project-description">{project.description}</p>
               <div className="mobile-project-details">{project.details.map((detail) => <div key={detail} className="mobile-project-detail"><span /><strong>{detail}</strong></div>)}</div>
-              <Link href={project.href} className="mobile-project-link"><span>Descubrir modelo</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link>
+              {project.href ? <Link href={project.href} className="mobile-project-link"><span>Descubrir modelo</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link> : <span className="mobile-project-link is-disabled" aria-disabled="true"><span>Descubrir modelo</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></span>}
             </article>
           ))}
         </div>
 
-        <footer className="projects-footer"><span>Diseño · Fabricación · Construcción</span><Link href="/proyectos" className="projects-all-link"><span>Ver todos los proyectos</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></Link></footer>
+        <footer className="projects-footer"><span>Diseño · Fabricación · Construcción</span><span className="projects-all-link is-disabled" aria-disabled="true"><span>Ver todos los proyectos</span><span aria-hidden="true"><ArrowIcon direction="up-right" /></span></span></footer>
       </div>
     </section>
   );
