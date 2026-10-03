@@ -265,6 +265,8 @@ export default function AbreraPage() {
         </div>
       </section>
 
+      <MediaLightbox open={planLightboxOpen} items={plans} activeIndex={activePlan} onChange={setActivePlan} onClose={() => setPlanLightboxOpen(false)} label="Plano ampliado" />
+
       <section className="ingrid-feature">
         <div className="ingrid-container">
           <div className="ingrid-feature-heading ingrid-reveal">
@@ -272,7 +274,7 @@ export default function AbreraPage() {
             <h2>Espacios pensados<em> para vivir mejor.</em></h2>
           </div>
           <div className="ingrid-feature-grid">
-            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p><MediaLightbox open={planLightboxOpen} items={plans} activeIndex={activePlan} onChange={setActivePlan} onClose={() => setPlanLightboxOpen(false)} label="Plano ampliado" />
+            <article className="ingrid-reveal"><span>01</span><h3>170 m²</h3><p>Una vivienda de gran superficie con cuatro dormitorios y áreas privadas para toda la familia.</p>
 
       </article>
             <article className="ingrid-reveal"><span>02</span><h3>Salón de 37 m²</h3><p>Un gran espacio previsto para instalar una cocina amplia y una zona de comedor.</p></article>
