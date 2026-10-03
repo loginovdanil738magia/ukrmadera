@@ -7557,3 +7557,40 @@ div {
  .plan-lightbox-prev{left:16px}.plan-lightbox-next{right:16px}
  .plan-lightbox-count{bottom:31px}
 }
+
+
+/* LIGHTBOX — unified navigation */
+.abrera-lightbox-prev,.abrera-lightbox-next,
+.everest-lightbox-prev,.everest-lightbox-next,
+.quiosco-lightbox-prev,.quiosco-lightbox-next,
+.plan-lightbox-prev,.plan-lightbox-next{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:48px!important;height:48px!important;padding:0!important;
+  border:1px solid rgba(255,255,255,.34)!important;border-radius:50%!important;
+  background:rgba(18,19,18,.38)!important;color:#fff!important;
+  line-height:1!important;box-sizing:border-box!important;
+  backdrop-filter:blur(5px);transition:background .25s ease,border-color .25s ease,transform .25s ease;
+}
+.abrera-lightbox-prev,.everest-lightbox-prev,.quiosco-lightbox-prev,.plan-lightbox-prev{left:28px!important}
+.abrera-lightbox-next,.everest-lightbox-next,.quiosco-lightbox-next,.plan-lightbox-next{right:28px!important}
+.abrera-lightbox-prev,.abrera-lightbox-next,
+.everest-lightbox-prev,.everest-lightbox-next,
+.quiosco-lightbox-prev,.quiosco-lightbox-next,
+.plan-lightbox-prev,.plan-lightbox-next{top:50%!important;bottom:auto!important;transform:translateY(-50%)!important}
+.lightbox-arrow-icon{display:block;width:10px;height:10px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}
+.abrera-lightbox-prev .lightbox-arrow-icon,.everest-lightbox-prev .lightbox-arrow-icon,.quiosco-lightbox-prev .lightbox-arrow-icon,.plan-lightbox-prev .lightbox-arrow-icon{transform:rotate(-135deg);margin-left:4px}
+.abrera-lightbox-next .lightbox-arrow-icon,.everest-lightbox-next .lightbox-arrow-icon,.quiosco-lightbox-next .lightbox-arrow-icon,.plan-lightbox-next .lightbox-arrow-icon{transform:rotate(45deg);margin-right:4px}
+@media(hover:hover){
+ .abrera-lightbox-prev:hover,.abrera-lightbox-next:hover,.everest-lightbox-prev:hover,.everest-lightbox-next:hover,
+ .quiosco-lightbox-prev:hover,.quiosco-lightbox-next:hover,.plan-lightbox-prev:hover,.plan-lightbox-next:hover{
+   background:rgba(255,255,255,.16)!important;border-color:rgba(255,255,255,.72)!important;
+ }
+}
+@media(max-width:600px){
+ .abrera-lightbox-prev,.everest-lightbox-prev,.quiosco-lightbox-prev,.plan-lightbox-prev{left:12px!important}
+ .abrera-lightbox-next,.everest-lightbox-next,.quiosco-lightbox-next,.plan-lightbox-next{right:12px!important}
+ .abrera-lightbox-prev,.abrera-lightbox-next,.everest-lightbox-prev,.everest-lightbox-next,
+ .quiosco-lightbox-prev,.quiosco-lightbox-next,.plan-lightbox-prev,.plan-lightbox-next{
+   top:50%!important;bottom:auto!important;width:42px!important;height:42px!important;transform:translateY(-50%)!important;
+ }
+}
