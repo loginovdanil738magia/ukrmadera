@@ -39,6 +39,7 @@ export default function HanoyPage() {
   const [activeImage, setActiveImage] = useState(0);
   const [activePlan, setActivePlan] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [planLightboxOpen, setPlanLightboxOpen] = useState(false);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -110,7 +111,7 @@ export default function HanoyPage() {
         <div className="quiosco-container">
           <div className="quiosco-config-heading quiosco-reveal"><div><span className="quiosco-label">Configura tu pérgola</span><h2>Planos y<em> configuración.</em></h2></div><p>Consulta las vistas técnicas del modelo Hanoy de 6 × 6 m y elige la opción con o sin montaje.</p></div>
           <div className="quiosco-config-grid">
-            <div className="quiosco-plan-panel quiosco-reveal"><div className="quiosco-plan-stage"><img src={plans[activePlan].src} alt={plans[activePlan].alt} /></div><div className="quiosco-plan-thumbs">{plans.map((plan,index)=><button key={plan.src} type="button" className={activePlan===index?"is-active":""} onClick={()=>setActivePlan(index)}><img src={plan.src} alt="" loading="lazy"/></button>)}</div></div>
+            <div className="quiosco-plan-panel quiosco-reveal"><button type="button" className="quiosco-plan-stage plan-expand-stage" onClick={() => setPlanLightboxOpen(true)} aria-label="Ampliar plano"><img src={plans[activePlan].src} alt={plans[activePlan].alt} /><span className="plan-expand-label">Ampliar</span></button><div className="quiosco-plan-thumbs">{plans.map((plan,index)=><button key={plan.src} type="button" className={activePlan===index?"is-active":""} onClick={()=>setActivePlan(index)}><img src={plan.src} alt="" loading="lazy"/></button>)}</div></div>
             <aside className="quiosco-offer quiosco-reveal">
               <span className="quiosco-offer-kicker">Hanoy 6 × 6 · 2 coches</span>
               <div className="quiosco-offer-price"><span>Precio</span><strong>{formatPrice(offer.price)}</strong></div>
@@ -121,6 +122,8 @@ export default function HanoyPage() {
           </div>
         </div>
       </section>
+
+      {planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
 
       <section className="quiosco-story"><div className="quiosco-container quiosco-story-grid"><div className="quiosco-reveal"><span className="quiosco-label">El modelo</span><h2>Madera y estructura.<em> Abiertas al entorno.</em></h2></div><div className="quiosco-story-copy quiosco-reveal"><p>Hanoy 6×6 es una cochera doble de madera con un elegante tejado plano, diseñada para mantener dos vehículos protegidos y siempre visibles.</p><p>Sus 36 m² permiten aparcar dos vehículos con comodidad y disponer además de espacio para un banco, plantas o almacenamiento. La estructura abierta facilita el acceso y mantiene una presencia ligera en el jardín.</p></div></div></section>
 
