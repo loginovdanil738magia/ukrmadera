@@ -111,19 +111,6 @@ export default function Manifesto() {
           scrub: 1.5,
         },
       });
-
-      gsap.to(".manifesto-word-nature", {
-        x: -18,
-        ease: "none",
-
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-
       /* =====================================================
          MADERA GIGANTE
          ===================================================== */
