@@ -206,9 +206,19 @@ export default function CatalogGrid() {
           <div ref={gridRef} className="catalog-grid">
             {visibleProducts.map((product, index) => {
               const price = getStartingPrice(product);
-              const variants = product.variants
-                .map((variant) => variant.label)
-                .join(" · ");
+              const areas = Array.from(
+                new Set(
+                  product.variants
+                    .map((variant) => variant.area)
+                    .filter((area): area is number => typeof area === "number")
+                )
+              );
+              const modelSummary =
+                areas.length > 1
+                  ? `${areas.length} tamaños · ${Math.min(...areas)}–${Math.max(...areas)} m²`
+                  : areas.length === 1
+                    ? `${areas[0]} m²`
+                    : "Proyecto configurable";
 
               return (
                 <article
@@ -232,7 +242,7 @@ export default function CatalogGrid() {
                   <div className="catalog-card-info">
                     <div className="catalog-card-meta">
                       <span>{product.categoryLabel}</span>
-                      <span>{variants}</span>
+                      <span>{modelSummary}</span>
                     </div>
 
                     <Link
