@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
+import MediaLightbox from "@/components/products/MediaLightbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +105,7 @@ export default function QuioscoPage() {
           <button type="button" className="quiosco-gallery-stage quiosco-reveal" onClick={() => setLightboxOpen(true)}><img ref={galleryImageRef} src={gallery[activeImage].src} alt={gallery[activeImage].alt} /><span>Ampliar</span></button>
           <div className="quiosco-gallery-thumbs">{gallery.map((image,index)=><button key={image.src} type="button" className={activeImage===index?"is-active":""} onClick={()=>changeGallery(index)}><img src={image.src} alt="" loading={index<3?"eager":"lazy"} /></button>)}</div>
         </div>
-        {lightboxOpen && <div className="quiosco-lightbox" role="dialog" aria-modal="true"><button className="quiosco-lightbox-close" onClick={()=>setLightboxOpen(false)}>Cerrar</button><button className="quiosco-lightbox-prev" onClick={()=>setActiveImage((activeImage-1+gallery.length)%gallery.length)} aria-label="Imagen anterior">‹</button><img src={gallery[activeImage].src} alt={gallery[activeImage].alt}/><button className="quiosco-lightbox-next" onClick={()=>setActiveImage((activeImage+1)%gallery.length)} aria-label="Imagen siguiente">›</button><span>{String(activeImage+1).padStart(2,"0")} / 05</span></div>}
+        <MediaLightbox open={lightboxOpen} items={gallery} activeIndex={activeImage} onChange={setActiveImage} onClose={() => setLightboxOpen(false)} />
       </section>
 
       <section className="quiosco-configurator">
@@ -126,7 +127,7 @@ export default function QuioscoPage() {
         </div>
       </section>
 
-      {planLightboxOpen && <div className="plan-lightbox" role="dialog" aria-modal="true" aria-label="Plano ampliado"><button type="button" className="plan-lightbox-close" onClick={() => setPlanLightboxOpen(false)}>Cerrar</button><button type="button" className="plan-lightbox-prev" onClick={() => setActivePlan((activePlan - 1 + plans.length) % plans.length)} aria-label="Plano anterior">←</button><img src={plans[activePlan].src} alt={plans[activePlan].alt}/><button type="button" className="plan-lightbox-next" onClick={() => setActivePlan((activePlan + 1) % plans.length)} aria-label="Plano siguiente">→</button><span className="plan-lightbox-count">{String(activePlan + 1).padStart(2,"0")} / {String(plans.length).padStart(2,"0")}</span></div>}
+      <MediaLightbox open={planLightboxOpen} items={plans} activeIndex={activePlan} onChange={setActivePlan} onClose={() => setPlanLightboxOpen(false)} label="Plano ampliado" />
 
       <section className="quiosco-story"><div className="quiosco-container quiosco-story-grid"><div className="quiosco-reveal"><span className="quiosco-label">El modelo</span><h2>Un punto de encuentro<em> hecho en madera.</em></h2></div><div className="quiosco-story-copy quiosco-reveal"><p>Este quiosco de madera está pensado para impulsar un negocio o crear un espacio práctico para recibir invitados. Su diseño permite adaptarlo al uso que necesites y convertirlo en un punto de atención con una presencia cálida y reconocible.</p><p>Las dos aperturas ajustables permiten abrir el quiosco para exponer productos y atender al público, o cerrar sus laterales cuando sea necesario. Sus 15 m² ofrecen un interior compacto y funcional para usos comerciales y privados.</p></div></div></section>
 
