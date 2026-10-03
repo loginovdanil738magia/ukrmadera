@@ -7655,36 +7655,6 @@ div {
 }
 
 
-/* UKRMADERA LOGO — rotating U monogram */
-.brand-logo{position:relative}
-.brand-logo-u-spinner{
-  position:absolute;
-  left:11.6%;
-  top:50%;
-  width:13.2%;
-  aspect-ratio:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  translate:-50% -50%;
-  pointer-events:none;
-  z-index:2;
-}
-.brand-logo-u-spinner>span{
-  display:block;
-  color:var(--oak);
-  font-family:var(--font-cormorant),Georgia,serif;
-  font-size:clamp(17px,1.45vw,25px);
-  font-style:italic;
-  line-height:1;
-  transform-origin:center;
-  will-change:transform;
-  animation:ukrmadera-monogram-spin 6s linear infinite !important;
-}
-@keyframes ukrmadera-monogram-spin{to{transform:rotate(360deg)}}
-
-
-
 /* HOME MANIFESTO — continuous U seal rotation */
 .manifesto-symbol-circle{
   animation:manifesto-u-spin 9s linear infinite;
