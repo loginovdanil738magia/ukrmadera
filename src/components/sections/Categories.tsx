@@ -207,6 +207,7 @@ export default function Categories() {
 
     return (
         <section
+            id="colecciones"
             ref={sectionRef}
             className="categories"
         >
