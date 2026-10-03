@@ -7594,3 +7594,62 @@ div {
    top:50%!important;bottom:auto!important;width:42px!important;height:42px!important;transform:translateY(-50%)!important;
  }
 }
+
+
+/* =========================================================
+   PRODUCT MEDIA LIGHTBOX — single source of truth
+   Arrows live outside the image, never over it.
+   ========================================================= */
+.media-lightbox{
+  position:fixed;inset:0;z-index:10000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:64px 24px 54px;background:rgba(12,13,12,.97);backdrop-filter:blur(10px);
+}
+.media-lightbox-layout{
+  width:min(1500px,100%);height:min(82vh,900px);
+  display:grid;grid-template-columns:56px minmax(0,1fr) 56px;
+  gap:24px;align-items:center;
+}
+.media-lightbox-media{
+  min-width:0;height:100%;display:flex;align-items:center;justify-content:center;
+}
+.media-lightbox-media img{
+  display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+}
+.media-lightbox-nav{
+  position:static!important;inset:auto!important;transform:none!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:48px!important;height:48px!important;margin:auto;padding:0!important;
+  border:1px solid rgba(255,255,255,.34)!important;border-radius:50%!important;
+  background:transparent!important;color:#fff!important;cursor:pointer;
+  transition:background .25s ease,border-color .25s ease;
+}
+.media-lightbox-chevron{
+  width:18px;height:18px;display:block;fill:none;stroke:currentColor;
+  stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.media-lightbox-close{
+  position:absolute;top:24px;right:30px;padding:10px;border:0;background:transparent;
+  color:#fff;cursor:pointer;font:700 9px var(--font-manrope),sans-serif;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.media-lightbox-count{
+  position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.62);font-size:9px;font-weight:700;letter-spacing:.16em;
+}
+@media(hover:hover){
+  .media-lightbox-nav:hover{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.72)!important}
+}
+@media(max-width:700px){
+  .media-lightbox{padding:58px 14px 22px;justify-content:center}
+  .media-lightbox-layout{
+    height:auto;max-height:86vh;grid-template-columns:1fr 1fr;
+    grid-template-rows:minmax(0,1fr) 46px;gap:16px 12px;
+  }
+  .media-lightbox-media{grid-column:1/-1;grid-row:1;max-height:72vh}
+  .media-lightbox-prev{grid-column:1;grid-row:2;justify-self:end;margin:0 4px 0 0}
+  .media-lightbox-next{grid-column:2;grid-row:2;justify-self:start;margin:0 0 0 4px}
+  .media-lightbox-nav{width:42px!important;height:42px!important}
+  .media-lightbox-close{top:14px;right:14px}
+  .media-lightbox-count{bottom:9px}
+}
