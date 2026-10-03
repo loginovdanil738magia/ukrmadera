@@ -68,7 +68,22 @@ export default function GarageDoblePage() {
         gsap.from(el, { y: 32, opacity: 0, duration: .95, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 87%", once: true } });
       });
     }, page);
-    return (
+    return () => ctx.revert();
+  }, []);
+
+  const changeGallery = (index: number) => {
+    if (index === activeImage) return;
+    const target = galleryImageRef.current;
+    if (!target) { setActiveImage(index); return; }
+    gsap.to(target, { opacity: 0, scale: 1.02, duration: .18, onComplete: () => {
+      setActiveImage(index);
+      requestAnimationFrame(() => galleryImageRef.current && gsap.fromTo(galleryImageRef.current, { opacity: 0, scale: 1.025 }, { opacity: 1, scale: 1, duration: .6, ease: "power3.out" }));
+    }});
+  };
+
+  const offer = finishes[finish];
+
+  return (
     <article ref={pageRef} className="quiosco-page garage-double-page">
       <section className="quiosco-hero">
         <div ref={heroImageRef} className="quiosco-hero-image garage-double-hero-image" aria-hidden="true" />
