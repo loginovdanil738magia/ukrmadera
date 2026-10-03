@@ -14,7 +14,7 @@ const categories = [
         title: "Casas",
         subtitle: "Espacios para vivir",
         image: "/images/categories/casas.jpg",
-        href: "/catalogo/casas",
+        href: "/catalogo?categoria=casas",
         className: "category-card-large",
     },
     {
@@ -22,7 +22,7 @@ const categories = [
         title: "Casetas",
         subtitle: "Espacios para disfrutar",
         image: "/images/categories/casetas.jpg",
-        href: "/catalogo/casetas",
+        href: "/catalogo?categoria=casetas",
         className: "category-card-small",
     },
     {
@@ -30,7 +30,7 @@ const categories = [
         title: "Quioscos",
         subtitle: "Espacios para tu negocio",
         image: "/images/categories/quioscos.jpg",
-        href: "/catalogo/quioscos",
+        href: "/catalogo?categoria=quioscos",
         className: "category-card-small",
     },
     {
@@ -38,7 +38,7 @@ const categories = [
         title: "Garajes",
         subtitle: "Protección con diseño",
         image: "/images/categories/garajes.jpg",
-        href: "/catalogo/garajes",
+        href: "/catalogo?categoria=garajes",
         className: "category-card-large",
     },
     {
@@ -46,7 +46,7 @@ const categories = [
         title: "Pérgolas",
         subtitle: "Arquitectura al aire libre",
         image: "/images/categories/pergolas.jpg",
-        href: "/catalogo/pergolas",
+        href: "/catalogo?categoria=pergolas",
         className: "category-card-large",
     },
 ];
