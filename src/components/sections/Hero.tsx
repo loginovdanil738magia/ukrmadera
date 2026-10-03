@@ -362,7 +362,7 @@ export default function Hero() {
                         <div className="hero-actions">
                             <Magnetic>
                                 <Link
-                                    href="/proyectos"
+                                    href="/#proyectos"
                                     className="button button-primary"
                                 >
                                     <span>Explorar proyectos</span>
