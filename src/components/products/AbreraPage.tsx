@@ -8,9 +8,14 @@ import ArrowUpRight from "@/components/ui/ArrowUpRight";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const gallery = Array.from({ length: 14 }, (_, index) => ({
+const gallery = Array.from({ length: 10 }, (_, index) => ({
   src: `/images/products/abrera/abrera-${String(index + 1).padStart(2, "0")}.webp`,
   alt: `Casa de madera ABRERA · vista ${String(index + 1).padStart(2, "0")}`,
+}));
+
+const plans = Array.from({ length: 4 }, (_, index) => ({
+  src: `/images/products/abrera/abrera-${String(index + 11).padStart(2, "0")}.webp`,
+  alt: `Casa de madera ABRERA · plano y vista técnica ${index + 1}`,
 }));
 
 const configurations = [
@@ -46,6 +51,7 @@ export default function AbreraPage() {
   const [configuration, setConfiguration] = useState(configurations[0]);
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activePlan, setActivePlan] = useState(0);
 
   const selectImage = (index: number) => {
     if (index === activeImage) return;
@@ -136,10 +142,10 @@ export default function AbreraPage() {
         <div className="ingrid-container">
           <div className="abrera-gallery-heading ingrid-reveal">
             <div>
-              <span className="ingrid-label">Galería · 14 imágenes</span>
+              <span className="ingrid-label">Galería</span>
               <h2>Descubre ABRERA<em> desde cada ángulo.</em></h2>
             </div>
-            <span className="abrera-gallery-count">{String(activeImage + 1).padStart(2, "0")} / 14</span>
+            <span className="abrera-gallery-count">{String(activeImage + 1).padStart(2, "0")} / {String(gallery.length).padStart(2, "0")}</span>
           </div>
 
           <button
@@ -201,41 +207,66 @@ export default function AbreraPage() {
         </div>
       </section>
 
-      <section className="abrera-config">
-        <div className="ingrid-container abrera-config-grid">
-          <div className="ingrid-reveal">
-            <span className="ingrid-label">Configuraciones</span>
-            <h2>Elige cómo quieres<em> tu ABRERA.</em></h2>
-            <p>Selecciona la configuración que mejor se adapte a tu proyecto y consulta su precio.</p>
+      <section className="abrera-config abrera-config-technical">
+        <div className="ingrid-container">
+          <div className="abrera-technical-heading ingrid-reveal">
+            <div>
+              <span className="ingrid-label">Configura tu ABRERA</span>
+              <h2>Planos y<em> configuración.</em></h2>
+            </div>
+            <p>Consulta las vistas técnicas del modelo y elige el nivel de acabado que mejor encaja con tu proyecto.</p>
           </div>
 
-          <div className="abrera-config-panel ingrid-reveal">
-            <div className="abrera-config-price">
-              <span>Precio</span>
-              <strong>{formatPrice(configuration.price)}</strong>
+          <div className="abrera-technical-grid">
+            <div className="abrera-plan-panel ingrid-reveal">
+              <div className="abrera-plan-stage">
+                <img src={plans[activePlan].src} alt={plans[activePlan].alt} />
+              </div>
+              <div className="abrera-plan-thumbs">
+                {plans.map((plan, index) => (
+                  <button
+                    key={plan.src}
+                    type="button"
+                    className={activePlan === index ? "is-active" : ""}
+                    onClick={() => setActivePlan(index)}
+                    aria-label={`Ver plano ${index + 1}`}
+                  >
+                    <img src={plan.src} alt="" loading="lazy" />
+                  </button>
+                ))}
+              </div>
             </div>
-            <label htmlFor="abrera-configuration">Opción</label>
-            <select
-              id="abrera-configuration"
-              value={configuration.id}
-              onChange={(event) => {
-                const selected = configurations.find((item) => item.id === event.target.value);
-                if (selected) setConfiguration(selected);
-              }}
-            >
-              {configurations.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.label} — {formatPrice(item.price)}
-                </option>
-              ))}
-            </select>
-            <div className="abrera-config-meta">
-              <span>170 m²</span><span>4 dormitorios</span><span>4 baños</span>
-            </div>
-            <Link href="/contacto" className="ingrid-button">
-              <span>Solicitar información</span>
-              <ArrowUpRight className="ui-arrow-icon" />
-            </Link>
+
+            <aside className="abrera-config-panel ingrid-reveal">
+              <span className="abrera-offer-kicker">Casa ABRERA · 170 m²</span>
+              <div className="abrera-config-price">
+                <span>Precio</span>
+                <strong>{formatPrice(configuration.price)}</strong>
+              </div>
+              <div className="abrera-config-facts">
+                <div><span>Superficie</span><strong>170 m²</strong></div>
+                <div><span>Dormitorios</span><strong>4</strong></div>
+                <div><span>Baños</span><strong>4</strong></div>
+              </div>
+              <div className="abrera-option-list">
+                <span>Configuración</span>
+                {configurations.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={configuration.id === item.id ? "is-active" : ""}
+                    onClick={() => setConfiguration(item)}
+                  >
+                    <span>{item.label}</span>
+                    <strong>{formatPrice(item.price)}</strong>
+                  </button>
+                ))}
+              </div>
+              <Link href="/contacto" className="ingrid-button">
+                <span>Solicitar información</span>
+                <ArrowUpRight className="ui-arrow-icon" />
+              </Link>
+            </aside>
           </div>
         </div>
       </section>
