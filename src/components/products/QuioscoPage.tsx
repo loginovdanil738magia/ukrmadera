@@ -119,7 +119,7 @@ export default function QuioscoPage() {
               <div className="quiosco-offer-price"><span>Precio</span><strong>{formatPrice(offer.price)}</strong></div>
               <div className="quiosco-offer-facts"><div><span>Superficie</span><strong>15 m²</strong></div><div><span>Dimensiones</span><strong>5 × 3 m</strong></div><div><span>Código</span><strong>299</strong></div></div>
               <div className="quiosco-finish-selector"><span>Configuración</span>{(Object.keys(finishes) as FinishId[]).map(id=><button key={id} type="button" className={finish===id?"is-active":""} onClick={()=>setFinish(id)}><span>{id==="sin-montaje"?"Sin montaje":"Con montaje"}</span><strong>{formatPrice(finishes[id].price)}</strong><small>{finishes[id].label}</small></button>)}</div>
-              <Link href="/contacto" className="quiosco-cta-button"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon"/></Link>
+              <span className="quiosco-cta-button is-disabled" aria-disabled="true"><span>Solicitar información</span><ArrowUpRight className="ui-arrow-icon"/></span>
             </aside>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function QuioscoPage() {
 
       <section className="quiosco-features"><div className="quiosco-container"><div className="quiosco-features-heading quiosco-reveal"><span className="quiosco-label quiosco-label-light">Características</span><h2>Compacto por fuera.<em> Adaptable por diseño.</em></h2></div><div className="quiosco-feature-grid"><article className="quiosco-reveal"><span>01</span><h3>2 aperturas ajustables</h3><p>Configura los laterales para abrir el espacio al público o cerrarlo según las necesidades de cada momento.</p></article><article className="quiosco-reveal"><span>02</span><h3>15 m² funcionales</h3><p>Una superficie de 5 × 3 m pensada para moverse con comodidad y aprovechar el espacio de trabajo.</p></article><article className="quiosco-reveal"><span>03</span><h3>Madera de coníferas</h3><p>Una estructura sencilla y atractiva construida en madera para integrarse con naturalidad en distintos entornos.</p></article></div></div></section>
 
-      <section className="quiosco-closing"><div className="quiosco-container quiosco-closing-grid"><div className="quiosco-reveal"><span className="quiosco-label quiosco-label-light">Quiosco 5 × 3</span><h2>Haz que tu espacio<em> trabaje contigo.</em></h2></div><div className="quiosco-reveal"><p>Cuéntanos cómo quieres utilizar tu quiosco y te ayudaremos con la configuración y el montaje.</p><Link href="/contacto" className="quiosco-cta-button"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon"/></Link></div></div></section>
+      <section className="quiosco-closing"><div className="quiosco-container quiosco-closing-grid"><div className="quiosco-reveal"><span className="quiosco-label quiosco-label-light">Quiosco 5 × 3</span><h2>Haz que tu espacio<em> trabaje contigo.</em></h2></div><div className="quiosco-reveal"><p>Cuéntanos cómo quieres utilizar tu quiosco y te ayudaremos con la configuración y el montaje.</p><span className="quiosco-cta-button is-disabled" aria-disabled="true"><span>Hablar con UkrMadera</span><ArrowUpRight className="ui-arrow-icon"/></span></div></div></section>
     </article>
   );
 }
