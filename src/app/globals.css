@@ -727,7 +727,8 @@ img {
 }
 
 .hero-bottom {
-  min-height: 100px;
+  min-height: 82px;
+  transform: translateY(18px);
 
   display: grid;
 
