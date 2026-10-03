@@ -12,8 +12,37 @@ export default function SmoothScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Next.js puede conservar la posición de scroll entre rutas.
-    // Cada página nueva debe empezar desde arriba.
+    const hash = window.location.hash;
+
+    if (hash) {
+      // On cross-route anchor navigation the Home needs a moment to mount
+      // and calculate its layout before we can target the section correctly.
+      const scrollToHash = () => {
+        const target = document.querySelector<HTMLElement>(hash);
+        if (!target) return false;
+
+        target.scrollIntoView({
+          behavior: "auto",
+          block: "start",
+        });
+
+        ScrollTrigger.refresh();
+        return true;
+      };
+
+      let attempts = 0;
+      const timer = window.setInterval(() => {
+        attempts += 1;
+
+        if (scrollToHash() || attempts >= 20) {
+          window.clearInterval(timer);
+        }
+      }, 50);
+
+      return () => window.clearInterval(timer);
+    }
+
+    // Normal route changes start from the top.
     window.scrollTo(0, 0);
   }, [pathname]);
 
