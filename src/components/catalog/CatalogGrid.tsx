@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
@@ -18,10 +19,22 @@ gsap.registerPlugin(ScrollTrigger);
 type Filter = "todos" | ProductCategory;
 
 export default function CatalogGrid() {
+  const searchParams = useSearchParams();
+  const requestedCategory = searchParams.get("categoria");
+  const initialFilter: Filter =
+    requestedCategory &&
+    catalogCategories.some((category) => category.id === requestedCategory)
+      ? (requestedCategory as Filter)
+      : "todos";
+
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const heroBackgroundRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState<Filter>("todos");
+  const [filter, setFilter] = useState<Filter>(initialFilter);
+
+  useEffect(() => {
+    setFilter(initialFilter);
+  }, [initialFilter]);
 
   const visibleProducts = useMemo(
     () =>
