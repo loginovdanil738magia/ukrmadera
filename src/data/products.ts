@@ -65,15 +65,16 @@ export const products: CatalogProduct[] = [
   {
     id: "quiosco",
     slug: "quiosco",
-    name: "Quiosco",
+    name: "QUIOSCO 5×3",
     category: "quioscos",
     categoryLabel: "Quiosco de madera",
-    image: "/images/categories/quioscos.jpg",
+    image: "/images/products/quiosco/quiosco5x3_1.webp",
     description:
       "Una estructura compacta y adaptable para uso comercial o privado, con aperturas configurables.",
     variants: [
       { id: "3x3", label: "3 × 3 m", dimensions: "3 × 3 m", area: 9, price: 1700 },
-      { id: "5x3", label: "5 × 3 m", dimensions: "5 × 3 m", area: 15, price: 2600 },
+      { id: "5x3-sin", label: "5 × 3 m", dimensions: "5 × 3 m", area: 15, price: 2600, note: "28 mm sin montaje" },
+      { id: "5x3-con", label: "5 × 3 m", dimensions: "5 × 3 m", area: 15, price: 4100, note: "28 mm con montaje" },
       { id: "4x4", label: "4 × 4 m", dimensions: "4 × 4 m", area: 16, price: 2700 },
     ],
   },
