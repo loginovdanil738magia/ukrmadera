@@ -7,7 +7,6 @@ import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import HomeMaterials from "@/components/sections/HomeMaterials";
 import WhyUkrMadera from "@/components/sections/WhyUkrMadera";
 import Process from "@/components/sections/Process";
-import HomeClosing from "@/components/sections/HomeClosing";
 
 export const metadata: Metadata = {
   title: "Casas y construcciones de madera",
@@ -26,7 +25,6 @@ export default function Home() {
       <FeaturedProjects />
       <WhyUkrMadera />
       <Process />
-      <HomeClosing />
     </main>
   );
 }
