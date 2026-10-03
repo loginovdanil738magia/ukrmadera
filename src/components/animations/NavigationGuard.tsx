@@ -31,6 +31,7 @@ export default function NavigationGuard() {
         url.origin === window.location.origin &&
         (url.pathname === "/" ||
           url.pathname === "/materiales" ||
+          url.pathname === "/nosotros" ||
           url.pathname === "/catalogo" ||
           url.pathname.startsWith("/catalogo/"));
 
